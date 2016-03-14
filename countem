@@ -1,0 +1,7 @@
+
+cd /home/jdd/dev/py/optionz_py
+rm -rf build
+pySloc $@ -v \
+    bash:countem bash:installit bash:test.all   \
+    txt:MAINIFEST.in                            \
+

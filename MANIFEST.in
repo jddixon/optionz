@@ -1,0 +1,7 @@
+# see http://docs.python.org/distutils/sourcedist.html
+# 
+include countem installit test.all
+include CHANGES README* TODO MANIFEST.in
+include .gitignoreinclude .gitignore**
+recursive-include optionz_py *.py
+global-exclude junk* .*swp 
