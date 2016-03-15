@@ -1,9 +1,17 @@
-# ~/dev/py/optionz_py/CHANGES
+# ~/dev/py/optionzy/CHANGES
 
+v0.1.1
+    2016-03-15
+        * create and test basic types                               SLOC  215
+v0.1.0
+    2016-03-14
+        * changed project name from optionz_py to optionz           SLOC  128
 v0.0.2
     2016-03-14
         * skeletal implementation                                   SLOC  128
 v0.0.1
     2016-03-13
         * initial build                                             SLOC   22
+
+
 

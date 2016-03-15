@@ -1,4 +1,4 @@
-# optionz_py
+# optionz
 
 Skeletal implementation.
 
@@ -8,5 +8,5 @@ Just a quick sketch.
 
 ## On-line Documentation
 
-More information on the **optionz_py** project can be found
-[here](https://jddixon.github.io/optionz_py)
+More information on the **optionz** project can be found
+[here](https://jddixon.github.io/optionz)

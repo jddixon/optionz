@@ -1,4 +1,4 @@
-<h1 class="libTop">optionz_py</h1>
+<h1 class="libTop">optionz</h1>
 
 Skeletal implementation.
 

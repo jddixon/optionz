@@ -1,5 +1,5 @@
 
-cd /home/jdd/dev/py/optionz_py
+cd /home/jdd/dev/py/optionz
 rm -rf build
 pySloc $@ -v \
     bash:countem bash:installit bash:test.all   \
