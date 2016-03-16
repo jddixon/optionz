@@ -35,6 +35,19 @@ class TestOptionz (unittest.TestCase):
 
     def testZOption(self):
 
+        # populate an Optionz object --------------------------------
+
+        zName   = self.rng.nextFileName(8)
+        zDesc   = self.rng.nextFileName(64)
+        zEpilog = self.rng.nextFileName(64)
+       
+        myOptz = Z(zName, zDesc, zEpilog)
+
+        self.assertEqual(myOptz.name,          zName)
+        self.assertEqual(myOptz.desc,          zDesc)
+        self.assertEqual(myOptz.epilog,        zEpilog)
+        self.assertEqual(len(myOptz),          0)
+
         # booleans --------------------------------------------------
 
         bDfltVal    = True
@@ -43,6 +56,12 @@ class TestOptionz (unittest.TestCase):
         self.assertEqual(boolOpt.name,          'bO')
         self.assertEqual(boolOpt.default,       bDfltVal)
         self.assertEqual(boolOpt.desc,          bDesc)
+
+        #                        name    valType     default    desc
+        bCheck = myOptz.addOption('bO',  Z.O_BOOL,   bDfltVal,  bDesc)
+        self.assertEqual(len(myOptz), 1)
+        self.assertEqual(boolOpt, bCheck)
+
 
         # choice lists ----------------------------------------------
 
@@ -83,74 +102,84 @@ class TestOptionz (unittest.TestCase):
             dfltVal  = self.rng.nextFileName(8)
 
         try:
-            badChoiceOpt = ChoiceOption('bO', choices, 
+            badChoiceOpt = ChoiceOption('bC', choices, 
                             default=dfltVal, desc="a list")
             self.fail('successfully added default value not in list of choices')
         except:
             pass
 
+        cCheck =  myOptz.addChoiceOption('cO', choices, cDfltVal, cDesc)
+        self.assertEqual(len(myOptz), 2)
+        self.assertEqual(choiceOpt, cCheck)
+
         # floats ----------------------------------------------------
 
         fDfltVal    = self.rng.nextReal()
-        floatOpt    = FloatOption('fO', default=fDfltVal, desc="bubbly")
+        fDesc       = 'bubbly'
+        floatOpt    = FloatOption('fO', default=fDfltVal, desc=fDesc)
         self.assertEqual(floatOpt.name,         'fO')
         self.assertEqual(floatOpt.default,      fDfltVal)
-        self.assertEqual(floatOpt.desc,         "bubbly")
+        self.assertEqual(floatOpt.desc,         fDesc)
+
+        #                        name    valType     default    desc
+        fCheck = myOptz.addOption('fO',  Z.O_FLOAT,  fDfltVal,  fDesc)
+        self.assertEqual(len(myOptz), 3)
+        self.assertEqual(floatOpt, fCheck)
 
         # ints ------------------------------------------------------
 
         iDfltVal    = self.rng.nextInt32()
-        intOpt      = IntOption('iO', default=iDfltVal, desc="discrete")
+        iDesc       = 'discrete'
+        intOpt      = IntOption('iO', default=iDfltVal, desc=iDesc)
         self.assertEqual(intOpt.name,           'iO')
         self.assertEqual(intOpt.default,        iDfltVal)
-        self.assertEqual(intOpt.desc,           "discrete")
+        self.assertEqual(intOpt.desc,           iDesc)
+
+        #                        name    valType     default    desc
+        iCheck = myOptz.addOption('iO',  Z.O_INT,  iDfltVal,  iDesc)
+        self.assertEqual(len(myOptz), 4)
+        self.assertEqual(intOpt, iCheck)
 
         # lists -----------------------------------------------------
 
         sizeVal     = self.rng.nextInt16()
+        # select polarity of size randomly 
         if self.rng.nextBoolean():
             sizeVal = - sizeVal
+        lDesc       = "chunky"
 
-        listOpt     = ListOption('lO', default=sizeVal, desc="chunky")
+        listOpt     = ListOption('lO', default=sizeVal, desc=lDesc)
         self.assertEqual(listOpt.name,          'lO')
         self.assertEqual(listOpt.default,       sizeVal)
-        self.assertEqual(listOpt.desc,          "chunky")
+        self.assertEqual(listOpt.size,          sizeVal)
+        self.assertEqual(listOpt.desc,          lDesc)
 
-        sizeVal     = 0
-        varListOpt  = ListOption('zO', default=sizeVal, desc="skinny")
+        zeroVal     = 0
+        varListOpt  = ListOption('zO', default=zeroVal, desc="skinny")
         self.assertEqual(varListOpt.name,       'zO')
-        self.assertEqual(varListOpt.default,    sizeVal)
+        self.assertEqual(varListOpt.default,    zeroVal)
         self.assertEqual(varListOpt.desc,       "skinny")
+
+        #                        name    valType     default    desc
+        lCheck = myOptz.addOption('lO',  Z.O_LIST,  sizeVal,  lDesc)
+        self.assertEqual(len(myOptz), 5)
+        self.assertEqual(listOpt, lCheck)
 
         # strings ---------------------------------------------------
 
         sDfltVal    = self.rng.nextFileName(12)
-        strOpt      = StrOption('sO', default=sDfltVal, desc="wiggly")
+        sDesc       = "wiggly"
+
+        strOpt      = StrOption('sO', default=sDfltVal, desc=sDesc)
         self.assertEqual(strOpt.name,           'sO')
         self.assertEqual(strOpt.default,        sDfltVal)
-        self.assertEqual(strOpt.desc,           "wiggly")
+        self.assertEqual(strOpt.desc,           sDesc)
 
-        # populate an Optionz object --------------------------------
+        #                        name    valType     default    desc
+        sCheck = myOptz.addOption('sO',  Z.O_STR,  sDfltVal,  sDesc)
+        self.assertEqual(len(myOptz), 6)
+        self.assertEqual(strOpt, sCheck)
 
-        zName   = self.rng.nextFileName(8)
-        zDesc   = self.rng.nextFileName(64)
-        zEpilog = self.rng.nextFileName(64)
-       
-        myOptz = Z(zName, zDesc, zEpilog)
-
-        self.assertEqual(myOptz.name,          zName)
-        self.assertEqual(myOptz.desc,          zDesc)
-        self.assertEqual(myOptz.epilog,        zEpilog)
-        self.assertEqual(len(myOptz),          0)
-
-        #               name    valType     default    desc
-        myOptz.addOption('b0',  Z.O_BOOL,   bDfltVal,  bDesc)
-        self.assertEqual(len(myOptz), 1)
-
-        #choiceOpt   = ChoiceOption('cO', choices, cDfltVal, cDesc) # model
-        # myOptz.addOption('cO', choices, default=cDfltVal, cDesc)
-        
-        # XXX WORKING HERE
 
 if __name__ == '__main__':
     unittest.main()

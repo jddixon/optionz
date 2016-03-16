@@ -1,4 +1,4 @@
 # ~/dev/optionz/TODO
 
-2016-03-13
-    *
+2016-03-15
+    * need __equal__ for Optionz and so for all types of Options
