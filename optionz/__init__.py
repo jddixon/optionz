@@ -2,13 +2,13 @@
 
 __all__ = [ '__version__', '__version_date__',
             # classes
-            'Optionz', 
-            'ZOption',   'BoolOption',  'ChoiceOption', 'FloatOption',  
+            'Optionz',
+            'ZOption',   'BoolOption',  'ChoiceOption', 'FloatOption',
             'IntOption', 'ListOption',  'StrOption',
           ]
 
-__version__      = '0.1.1'
-__version_date__ = '2016-03-15'
+__version__      = '0.1.2'
+__version_date__ = '2016-03-16'
 
 class Optionz (object):
     O_BOOL      = 1
@@ -38,31 +38,37 @@ class Optionz (object):
     def addOption(self, name, valType, default=None, desc=None):
         if valType < self.O_BOOL or valType > self.O_STR:
             raise RuntimeError('unrecognized valType %d', valType)
-        if name in self._zOptions:
-            raise RuntimeError("duplicate option name '%s'" % name)
+        if name in self._zMap:
+            raise ValueError("duplicate option name '%s'" % name)
 
         if valType   == self.O_BOOL:
-            newOption = BoolOption(name,    desc, default)
-        elif valType == ChoiceOption:
-            newOption = ChoiceOption(name,  desc, default)
-        elif valType == FloatOption:
-            newOption = FloatOption(name,   desc, default)
-        elif valType == IntOption:
-            newOption = IntOption(name,     desc, default)
-        elif valType == ListOption:
-            newOption = ListOption(name,    desc, default)
-        elif valType == StrOption:
-            newOption = StrOption(name,     desc, default)
+            newOption = BoolOption(name,    default, desc)
+        elif valType == self.O_FLOAT:
+            newOption = FloatOption(name,   default, desc)
+        elif valType == self.O_INT:
+            newOption = IntOption(name,     default, desc)
+        elif valType == self.O_LIST:
+            newOption = ListOption(name,    default, desc)
+        elif valType == self.O_STR:
+            newOption = StrOption(name,     default, desc)
         else:
             raise RuntimeError("uncaught bad option type %d" % valType)
 
         self._zMap[name] = newOption
         self._zOptions.append(newOption)
+        return newOption
+
+    def addChoiceOption(self, name, choices, default=None, desc=None):
+        if name in self._zMap:
+            raise ValueError("duplicate option name '%s'" % name)
+        newOption = ChoiceOption(name,  choices, default, desc)
+        self._zMap[name] = newOption
+        self._zOptions.append(newOption)
+        return newOption
+
 
     def __len__(self):
         return len(self._zOptions)
-
-
 
 class ZOption(object):
 
@@ -80,12 +86,18 @@ class ZOption(object):
     def desc(self):  return self._desc
 
 class BoolOption(ZOption):
-    
+
     def __init__(self, name, default=False, desc=None):
         super().__init__(name, Optionz.O_BOOL, default, desc)
 
+    def __eq__(self, other):
+        return  isinstance(other, BoolOption)       and \
+                self._name     == other._name       and \
+                self._default  == other._default    and \
+                self._desc     == other._desc
+
 class ChoiceOption(ZOption):
-    """ 
+    """
     This implementation makes no attempt to make sure that the list
     of choices is homogeneous (all elements are of the same type) or
     otherwise sensible.
@@ -100,16 +112,34 @@ class ChoiceOption(ZOption):
 
     @property
     def choices(self):
+        """ returns a copy of the list of choices """
         return [ch for ch in self._choices]
+
+    def __eq__(self, other):
+        return  isinstance(other, ChoiceOption)     and \
+                self._name     == other._name       and \
+                self._default  == other._default    and \
+                self._desc     == other._desc
 
 class FloatOption(ZOption):
     def __init__(self, name, default=None, desc=None):
         super().__init__( name, Optionz.O_FLOAT, default, desc)
 
+    def __eq__(self, other):
+        return  isinstance(other, FloatOption)      and \
+                self._name     == other._name       and \
+                self._default  == other._default    and \
+                self._desc     == other._desc
+
 class IntOption(ZOption):
     def __init__(self, name, default=None, desc=None):
         super().__init__( name, Optionz.O_INT, default, desc)
 
+    def __eq__(self, other):
+        return  isinstance(other, IntOption)      and \
+                self._name     == other._name       and \
+                self._default  == other._default    and \
+                self._desc     == other._desc
 
 class ListOption(ZOption):
     """
@@ -121,13 +151,26 @@ class ListOption(ZOption):
     def __init__(self, name, default=None, desc=None):
         super().__init__( name, Optionz.O_LIST, default, desc)
 
-    # perhaps temporarily:
+    # an alias
     @property
     def size(self):         return self._default
+
+    def __eq__(self, other):
+        return  isinstance(other, ListOption)       and \
+                self._name     == other._name       and \
+                self._default  == other._default    and \
+                self._desc     == other._desc
 
 class StrOption(ZOption):
     def __init__(self, name, default=None, desc=None):
         super().__init__( name, Optionz.O_STR, default, desc)
+
+    def __eq__(self, other):
+        return  isinstance(other, StrOption)      and \
+                self._name     == other._name       and \
+                self._default  == other._default    and \
+                self._desc     == other._desc
+
 
 
 
