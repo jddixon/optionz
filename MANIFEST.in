@@ -1,6 +1,6 @@
 # see http://docs.python.org/distutils/sourcedist.html
 # 
-include countem installit test.all
+include auto8it countem installit test.all
 include CHANGES README* TODO MANIFEST.in
 include .gitignoreinclude .gitignore*
 recursive-include optionz *.py
