@@ -2,6 +2,6 @@
 cd /home/jdd/dev/py/optionz
 rm -rf build
 pySloc $@ -v \
-    bash:countem bash:installit bash:test.all   \
+    bash:auto8it bash:countem bash:installit bash:test.all   \
     txt:MAINIFEST.in                            \
 
