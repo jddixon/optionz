@@ -7,8 +7,8 @@ __all__ = ['__version__', '__version_date__',
            'IntOption', 'ListOption', 'StrOption',
            ]
 
-__version__      = '0.1.3'
-__version_date__ = '2016-03-25'
+__version__      = '0.1.4'
+__version_date__ = '2016-04-30'
 
 
 class Optionz (object):
