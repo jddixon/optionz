@@ -1,7 +1,7 @@
+#!/usr/bin/env bash
 
-cd /home/jdd/dev/py/optionz
-rm -rf build
-pySloc $@ -v \
-    bash:auto8it bash:countem bash:installit bash:test.all   \
-    txt:MAINIFEST.in                            \
+cd $DEV_BASE/py/optionz
 
+rm -rf build/* 
+
+pySloc  -X dist -v $@
