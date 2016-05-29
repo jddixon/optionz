@@ -4,8 +4,7 @@ if [ ! -z "${DEV_BASE// }" ]
 then
   cd $DEV_BASE/py/optionz
   
-  ./testOptionz.py
-  echo "CONGRATULATIONS: YOU HAVE OVERWRITTEN test.all"
+  autopep8 -ai -r optionz *.py
   
 else
   echo "DEV_BASE is not defined"

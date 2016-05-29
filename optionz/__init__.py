@@ -7,8 +7,8 @@ __all__ = ['__version__', '__version_date__',
            'IntOption', 'ListOption', 'StrOption',
            ]
 
-__version__      = '0.1.4'
-__version_date__ = '2016-04-30'
+__version__ = '0.1.5'
+__version_date__ = '2016-05-29'
 
 
 class Optionz (object):
@@ -186,4 +186,3 @@ class StrOption(ZOption):
             self._name     == other._name       and \
             self._default  == other._default    and \
             self._desc == other._desc
-
