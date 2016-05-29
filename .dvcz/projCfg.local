@@ -1,5 +1,7 @@
 # optionz/.dvcz/projCfg.local
 
+dir:pkg:optionz
+
 code:std:.dvcz/projCfg.local
 code:std:.dvcz/projCfg
 code:std:.gitignore

@@ -1,3 +1,0 @@
-cd /home/jdd/dev/py/optionz
-
-autopep8 -air optionz setup.py test*.py
