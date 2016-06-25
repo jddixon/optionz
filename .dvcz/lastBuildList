@@ -7,17 +7,19 @@ zPjEShF9rvcNa9XEy1dKpcDz9Szbm2SlxOgM83fDDGtOq4SSCSqndtxrOvXXPB57
 H1mJV/FmerbXRPm5ERJVNIxtLk7Gr2Ce45FVlWyJGMhpfVlKkkk+bRQ02OFfazJI
 GQIDAQAB
 -----END RSA PUBLIC KEY-----
-optionz v0.1.5
-2016-05-29 23:17:38
+optionz v0.1.6
+2016-06-25 22:24:55
 # START CONTENT #
 optionz
  .copyright ab39c54239118a4b086b878b7878100f769dd197
  .dvcz
+  builds e87a22dc55c33f055dbe580d438dd1b88e69f022
+  lastBuildList 43c2a326c2870872b10ee762c8fb2d0c11000980
   projCfg 1163ce7c2603a52a4a46dff70d52b2a2080ae063
   projCfg.local 99a0c0ab853696fd73322f9062f2a86dc26e4087
-  version 3a03d1c391b682fdb484b99ab0eddd16f85f6974
- .gitignore 274228c81d7b75ce1888567cdfb763aacfcd74db
- CHANGES a7381acc5e4a13278b8e080284e1caed8014b465
+  version da7714ec562270c7a8f87a432208dd67a7d0f59b
+ .gitignore 5f1a04317952b671c5828218c6efe88c2594f8fb
+ CHANGES c5ac3bcb340edca8b3034cdc4e3435b0b16bfa15
  LICENSE.md f9785a1042444732de8b63db3a55ea01b4ccd7bf
  MANIFEST.in 3f6739adc81a934f6ac026a34e1d7e8d570ed61d
  README.md 3bc054ca85456fe650bb9db15cc6b8d2486a09ca
@@ -31,16 +33,30 @@ optionz
   optionz-0.1.3.tar.gz 15c888be605f89e151b210e3f71f311abada8dc2
   optionz-0.1.4.tar.gz 9a4edb078f3e79b92c9b60ae1bd1238605c9d646
   optionz-0.1.5.tar.gz fb18a330ab4f364cfe30ac4c63d12fa54461fb63
+  optionz-0.1.6.tar.gz 57eadc66e1ed4e38157ab3010e6749aadddeb4f5
   optionz_py-0.0.2.tar.gz 17e4480e4a85cad8e92c93888e5b784e0d1702d7
  ghpDoc
+  css
+   LICENSE.html5-boilerplate.md ded771b3245b190da0e81c76de5a80d41392c0a6
+   ghp.css 1d6ebe8a6cf8f61f4645a793cb087dfae2420f33
+   main.css 018ed80b8a6e6607bc7c08595fa5a7fa56853885
+   normalize.css cba40c7ce3d558d00ff79d7505ac3d348015ec9c
+  img
+   GitHub-Mark-32px.png fabe53eb72f9b6d3d47cd95aff31ffc45c2fdbf8
+   chunk.jpg de2b27e41f1547fc14b13399f5906b4303b49657
+   chunk2.jpg d0593d312dbb8ea837c17b28cb639726e29ea93b
+   cluster-with-clients.jpg c167d04c0c6b5736ef9fe4cdc3fcce1956fdea78
+   simple-cluster.jpg 6b223ddd25937c1ef75ef328f36fc3436f10bd62
+   xl-registration.jpg 15cbf951f9db173a45428b32dcec87aca83bbdf0
+   xlattice-2014.jpg f185aaad06db71acd9454f31054c62c56d36f37f
   index.md bf5983933ca4d7d0a9b0c6237afa2b204e123fc0
  installit 770b458f2e9c4e88de6221b8b062620abe5337f1
  optionz
-  __init__.py 71d33d592250cb11faa78c822019a69310d4628a
- setup.py 04dff098a49e3f32c2ea74a0aedc67865ff5b7d5
+  __init__.py de5f9ad7787d21483550d84a792629aeb98b6293
+ setup.py f024f07272a7b5a280f1af250a5a21a80377bed7
  styleit ccfa981aa8a805d81a9f04977596f45076875008
- test.all 55ef2d244d43c7a23570103f6ee2443373a2303d
+ test.all 3e492bf86571eb1f9d7d44cac3a21fc7d562d5be
  testOptionz.py bfb8f4dc161f5d32b20cdc0c24aa173b8f4f4d5a
 # END CONTENT #
 
-TTbni5ZpNkAyP5izpCbnYbnIuXbm6T07a68QpwNwffblycuYjwVWAFT7aNtRb76ld55iv+h8myzuLX94XwiFem2QUDyvPGbuLJPD+xW41Z6Q13bKy+Z/72cQC+PM/aX/zbHCEc7eLvfNmuCM+iG/HJOa6BvqaAJwMqtUDy5KPrBuReq4GfqDrRDUNfIVn9tS03aN/8DOqWMfVKSY03g0EvpvZ5iM0h/pX1buyAg4TvqLZnoHdPZ9gqFGiSb5d787zoIe8xhDDAn/eFN6xh6lZrXtDO+cMYOj/PbYTdtOQYqVz44ipcq0aMhNdYHIKVZASMOGH5cWN3qUuZUARhJgMA==
+TPRIfkzcg5LRfqqnFK5BtMvy9zqXfnDhrLApBBFM4Krsa/FBu0lg3k89o7Gql5a2CAqVmRIgPD/y4cZ98+BlF1h6GgGtMnkiINUayg18UAqc7brhy0UUGJ8gRL0eOXDOX2zM8iiqb6ICtopwGl6/xj/tPmBad6a5a19bj0rHolYMXmhjJsmCcFkSLKdws0w4cpy0zkRoV38WggZ7EXW2205ImiAbn4i4It0u2PT+TFI6rmrDW76jXnhjlO7AsW/lEEv7Yn/7bDePGuPU99xSAXhiIfIp/iGWiB849t53s57Yptd/sukFVJgq/HumHUf82u+g0T1Q+9h9XOoo/31oVw==

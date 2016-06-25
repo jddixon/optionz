@@ -5,7 +5,6 @@ then
   cd $DEV_BASE/py/optionz
   
   ./testOptionz.py
-  echo "CONGRATULATIONS: YOU HAVE OVERWRITTEN test.all"
   
 else
   echo "DEV_BASE is not defined"
