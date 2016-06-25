@@ -1,5 +1,8 @@
 # ~/dev/py/optionzy/CHANGES
 
+v0.1.6
+    2016-06-25
+        * add ghpDoc/{css,img}/                                     SLOC  878
 v0.1.5
     2016-05-29
         * add bkp2U, other bash scripts                             SLOC  376
@@ -24,6 +27,7 @@ v0.0.2
 v0.0.1
     2016-03-13
         * initial build                                             SLOC   22
+
 
 
 

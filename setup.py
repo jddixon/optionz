@@ -18,5 +18,9 @@ setup(name='optionz',
       packages=['optionz', ],
       # following could be in scripts/ subdir
       scripts=[],
-      # MISSING url
+      # MISSING description
+      classifiers=[
+          'License :: OSI Approved :: MIT License',
+          'Programming Language :: Python :: 3',
+      ],
       )
