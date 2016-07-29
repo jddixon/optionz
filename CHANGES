@@ -1,5 +1,8 @@
 # ~/dev/py/optionzy/CHANGES
 
+v0.1.7
+    2016-07-28
+        * add BaseOption and test                                   SLOC 1083
 v0.1.6
     2016-06-25
         * add ghpDoc/{css,img}/                                     SLOC  878
@@ -27,6 +30,7 @@ v0.0.2
 v0.0.1
     2016-03-13
         * initial build                                             SLOC   22
+
 
 
 
