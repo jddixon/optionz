@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # optionz/optionz/__init__.py
 
 __all__ = ['__version__', '__version_date__',
@@ -7,8 +9,39 @@ __all__ = ['__version__', '__version_date__',
            'IntOption', 'ListOption', 'StrOption',
            ]
 
-__version__ = '0.1.6'
-__version_date__ = '2016-06-25'
+__version__ = '0.1.7'
+__version_date__ = '2016-07-28'
+
+
+class _BaseOption(object):
+
+    pass
+
+
+class Option(_BaseOption):
+
+    def __init__(self, **kwargs):
+        for name in kwargs:
+            setattr(self, name, kwargs[name])
+
+    def __eq__(self, other):
+        if not other or not isinstance(other, _BaseOption):
+            return False
+
+        # DEBUG
+        print("eq:")
+        print("  self:  %s" % self.__dict__)
+        print("  other: %s" % other.__dict__)
+        # END
+        return self.__dict__ == other.__dict__
+
+    def __ne__(self, other):
+        return not self == other
+
+    __hash__ = None         # since we have defined __eq__
+
+    def __contains__(self, key):
+        return key in self.__dict__
 
 
 class Optionz (object):
