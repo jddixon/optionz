@@ -10,6 +10,14 @@ from rnglib import SimpleRNG
 from optionz import _BaseOption, Option
 
 
+class EmptyClass():
+    pass
+
+
+def simpleAdder(self, a, b):
+    return a + b
+
+
 class TestBaseOption (unittest.TestCase):
 
     def setUp(self):

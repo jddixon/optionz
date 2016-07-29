@@ -9,8 +9,8 @@ __all__ = ['__version__', '__version_date__',
            'IntOption', 'ListOption', 'StrOption',
            ]
 
-__version__ = '0.1.7'
-__version_date__ = '2016-07-28'
+__version__ = '0.1.8'
+__version_date__ = '2016-07-29'
 
 
 class _BaseOption(object):
