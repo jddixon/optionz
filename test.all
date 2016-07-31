@@ -3,9 +3,10 @@
 if [ ! -z "${DEV_BASE// }" ]
 then
   cd $DEV_BASE/py/optionz
-
+  
   ./testAddingFunctions.py
   ./testBaseOption.py
+  ./testMetaClasses.py
   ./testOptionz.py
   
 else

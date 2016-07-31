@@ -7,25 +7,25 @@ zPjEShF9rvcNa9XEy1dKpcDz9Szbm2SlxOgM83fDDGtOq4SSCSqndtxrOvXXPB57
 H1mJV/FmerbXRPm5ERJVNIxtLk7Gr2Ce45FVlWyJGMhpfVlKkkk+bRQ02OFfazJI
 GQIDAQAB
 -----END RSA PUBLIC KEY-----
-optionz v0.1.8
-2016-07-29 23:27:36
+optionz v0.1.9
+2016-07-31 01:08:15
 # START CONTENT #
 optionz
  .copyright ab39c54239118a4b086b878b7878100f769dd197
  .dvcz
-  builds c1304758b847269af2c8beb1a295f4a957d745ac
-  lastBuildList 7d68dafe1d6e28fb8ec5a81d3669bb6a28d7f04b
-  projCfg 1163ce7c2603a52a4a46dff70d52b2a2080ae063
+  builds 31c74ed43c05fcad75ca33f77c3ce11b54f034b6
+  lastBuildList b3a0a76f84f64297440b23da288018e9c616e754
+  projCfg 8b1294e901a9620ba312a8275556bf5e0afd6fe5
   projCfg.local 99a0c0ab853696fd73322f9062f2a86dc26e4087
-  version edb1273e5db02d0284a392944f06f0175c6c500a
+  version 44e61d626ed7fee83ab28546c5b028bf49077c7a
  .gitignore 5f1a04317952b671c5828218c6efe88c2594f8fb
- CHANGES b7e9964ce214a57d8965b3f1e50e696a828b1856
+ CHANGES 91597510eb4c9f299c75b387848ab4a3cf089111
  LICENSE.md f9785a1042444732de8b63db3a55ea01b4ccd7bf
  MANIFEST.in 3f6739adc81a934f6ac026a34e1d7e8d570ed61d
  README.md 3bc054ca85456fe650bb9db15cc6b8d2486a09ca
  TODO 70517d25d86bbeb308b596ca34d9b4b07402d62a
  bkp2U 51f857f1db09e0bab2b81ff6be0dc93d3132d47e
- countem 7f5077910b451669f8bf1b266d9e1d6efe95f5a0
+ countem 83b99ccf29a39c6bb5b7bbe0af2f4cb992b07d30
  dist
   optionz-0.1.0.tar.gz 2cc47d2fa6be4aea3ddb85f09bdb456ee6fbd75f
   optionz-0.1.1.tar.gz 44348422c9e6ecc0350cf661219d843a916c5801
@@ -36,6 +36,7 @@ optionz
   optionz-0.1.6.tar.gz 57eadc66e1ed4e38157ab3010e6749aadddeb4f5
   optionz-0.1.7.tar.gz 6063c73ac9d5c2dd0270054f6ab5ac84242ad305
   optionz-0.1.8.tar.gz 24247ccd45ee7bf8e9a0c8b738ec5475132374d2
+  optionz-0.1.9.tar.gz d86056528af426350917291c9d3aeac6fdeedd35
   optionz_py-0.0.2.tar.gz 17e4480e4a85cad8e92c93888e5b784e0d1702d7
  ghpDoc
   css
@@ -54,13 +55,14 @@ optionz
   index.md bf5983933ca4d7d0a9b0c6237afa2b204e123fc0
  installit 770b458f2e9c4e88de6221b8b062620abe5337f1
  optionz
-  __init__.py 335b6cf7c2f2a491a4c31c44ba0ad5f6681c2666
+  __init__.py 0834e9f8e2eadb50b55f2bf42e147ee90efad654
  setup.py f024f07272a7b5a280f1af250a5a21a80377bed7
  styleit ccfa981aa8a805d81a9f04977596f45076875008
- test.all fdeb89b0b25979486eac4d9a79cc0256c945df66
- testAddingFunctions.py b4e57e50e88440f1ddad4088c68b4167090dfebb
+ test.all 8bb4aa4c686b3f32ae35a3c11951c204d9f5d83e
+ testAddingFunctions.py 4862d4a6bccbe2eba6eaf62768a240fc8f3765b4
  testBaseOption.py e905316555ca394e70c822d8847931f81b7482be
+ testMetaClasses.py 80f5762dfd4a73c8ec08ae63433309de63e1c4a5
  testOptionz.py bfb8f4dc161f5d32b20cdc0c24aa173b8f4f4d5a
 # END CONTENT #
 
-G4MRuKFw0q6Na/acoDAxEVXDSX351UWHXJsqjpeWseJxUFLVPIPyhyruSzmVgSEQNX8CGZPGSdPxkDdf1b3CQVoWKKjD2wkAq/DNPw3ltPaj1hZfcN3AKO1rizfUOJ7X6DUdo6DvLNBidij7YVVGCPCq/esrF3HWj+audrsNfxQAubvJ3zTi2x2qbyiMDT5jNNomp70H2Z5zEOFqPaFP0jFCjVxTGxC8Js/pU/WeFQtQdqE8GszkuLrsSCKawihAGbxr85SjUVvGl+iKpRrRMcEga9C7k0ZSeMob1nLtJAOrS/m9DdO3TIsFV33oZriS7WC5fOdfXcKJPHowpg4h3g==
+G+JOl/Yro7BAzRTfMFfMtL4Mqp0Y7PKlzxC88DSiy0y2nUVDELs93ryobv9gNPnHZbqBgpNUBYH7/P/gA3MmGxEbmIsiK3wDCiKucQklmCh8MmjoheCyOdYJA2ZSH5zYLa+h2WNU+ThcU0/8Y++hYEfc04fMsywbtkHFFIztg/3o58b7yaOU8C+v+wzdA8kvJOppf7zoVsNxefdY9En/33LSzcXhIC8tmdlj+9ECwBERkz/GAUFGuItkGvTOo0uDgU7HKXbVZiAA0Q5LHbnosyGUEOC8ldORC887o212tVNI2vQZ9jrB5Vpov5aRo71mg+GvVhxb6bmMeIJg0rm+uQ==
