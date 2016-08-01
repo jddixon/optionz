@@ -2,8 +2,8 @@
 project:optionz
 package:optionz
 mainlang:py
-version:0.1.8
-versionDate:2016-07-29
+version:0.1.9
+versionDate:2016-07-30
 :?dirs?:
 dir:std:ghpDoc
 dir:std:dist
@@ -36,5 +36,6 @@ bash:std:auto8it
 py:std:setup.py
 py:test:testAddingFunctions.py
 py:test:testBaseOption.py
+py:test:testConst.py
 py:test:testMetaClasses.py
 py:test:testOptionz.py
