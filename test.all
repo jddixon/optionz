@@ -6,6 +6,7 @@ then
   
   ./testAddingFunctions.py
   ./testBaseOption.py
+  ./testClassMaker.py
   ./testConst.py
   ./testMetaClasses.py
   ./testOptionz.py
