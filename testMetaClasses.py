@@ -22,6 +22,9 @@ class TestMetaClasses (unittest.TestCase):
     def testSingleton(self):
 
         class Singleton(type):
+            """
+            Classes derived from this metaclass will indeed be singletons.
+            """
             _instance = None
 
             def __call__(cls, *args, **kwargs):
@@ -55,17 +58,18 @@ class TestMetaClasses (unittest.TestCase):
             def __new__(cls, name, bases, namespace, **kwargs):
                 """
                 Creates the class; may need to cast namespace to dict.
-                We must drop kwargs from call to __new__().
+                Omit kwargs from call to __new__().
                 """
                 return super().__new__(cls, name, bases, namespace)
 
             def __init__(cls, name, bases, namespace, **kwargs):
                 """
-                We must drop kwargs from call to __init__().
+                Omit kwargs from call to __init__().
                 """
                 super().__init__(name, bases, namespace)
 
         class MyOption(metaclass=MetaOption, a=15, b=25):
+            """ Notice the items being passed as parameters to the class """
             pass
 
         obj = MyOption()
