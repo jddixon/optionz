@@ -3,14 +3,77 @@
 # optionz/optionz/__init__.py
 
 __all__ = ['__version__', '__version_date__',
+           # functions
+           'optionzMaker',
            # classes
+           'Singleton', 'MetaOption',
+           # PROvISIONAL:
            'Optionz',
            'ZOption', 'BoolOption', 'ChoiceOption', 'FloatOption',
            'IntOption', 'ListOption', 'StrOption',
            ]
 
-__version__ = '0.1.11'
-__version_date__ = '2016-08-02'
+__version__ = '0.1.12'
+__version_date__ = '2016-08-15'
+
+
+class Singleton(type):
+    """
+    Classes derived from this metaclass will indeed be singletons.
+    """
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls is Singleton._instance:
+            Singleton._instance = cls
+        return Singleton._instance
+
+
+class Immutable(object):
+
+    def __setattr__(self, name, value):
+        raise AttributeError("attempt to change immutable value")
+
+
+class MetaOption(type):
+
+    @classmethod
+    def __prepare__(metacls, name, bases, **kwargs):
+        """
+        Optional.  Here we use kwargs to set attributes of the
+        class. Need to return a dictionary-like object.
+        """
+        return dict(kwargs)
+
+    def __new__(cls, name, bases, namespace, **kwargs):
+        """
+        Creates the class; may need to cast namespace to dict.
+        Omit kwargs from call to __new__().
+        """
+        Clz = super().__new__(cls, name, bases, namespace)
+        return Clz
+
+    def __init__(cls, name, bases, namespace, **kwargs):
+        """
+        Omit kwargs from call to __init__().
+        """
+        super().__init__(name, bases, namespace)
+
+    def __setattr__(cls, key, value):
+        raise AttributeError("attempt to change immutable value")
+
+# def attrSetter(self, key, value):
+#    raise AttributeError("attempt to change immutable value")
+
+
+def optionzMaker(**kwargs):
+    class MyOptions(Singleton, metaclass=MetaOption, **kwargs):
+        pass
+    return MyOptions
+
+#####################################################################
+# EVERYTHING BELOW THIS IS EVEN MORE PROVISIONAL THAN SINGLETON
+#####################################################################
 
 
 class _BaseOption(object):
@@ -54,8 +117,8 @@ class Optionz (object):
 
     def __init__(self, name, desc=None, epilog=None):
         self._name = name
-        self._desc = desc          # shorter, used in usage()
-        self._epilog = epilog        # shorter, used in usage()
+        self._desc = desc           # short, top of help message
+        self._epilog = epilog       # footer for help message
         self._zOptions = []
         self._zMap = {}
 
