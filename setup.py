@@ -13,14 +13,18 @@ setup(name='optionz',
       version=__version__,
       author='Jim Dixon',
       author_email='jddixon@gmail.com',
+      description='getopt replacement',
+      url='https://jddixon.github.io/optionz',
       py_modules=[],
       # list packages in separate directories
       packages=['optionz', ],
       # following could be in scripts/ subdir
       scripts=[],
-      # MISSING description
       classifiers=[
           'License :: OSI Approved :: MIT License',
-          'Programming Language :: Python :: 3',
+          "Development Status :: 2 - Pre-Alpha",
+          'Intended Audience :: Developers',
+          'Natural Language :: English',
+          'Programming Language :: Python 3',
       ],
       )

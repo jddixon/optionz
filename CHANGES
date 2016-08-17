@@ -1,5 +1,8 @@
 # ~/dev/py/optionzy/CHANGES
 
+v0.1.13
+    2016-08-16
+        * testNamedTuples.py                                        SLOC 1372
 v0.1.12
     2016-08-15
         * working 'immutability'                                    SLOC 1307
@@ -45,6 +48,7 @@ v0.0.2
 v0.0.1
     2016-03-13
         * initial build                                             SLOC   22
+
 
 
 

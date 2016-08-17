@@ -9,6 +9,7 @@ then
   ./testClassMaker.py
   ./testConst.py
   ./testMetaClasses.py
+  ./testNamedTuples.py
   ./testOptionz.py
   
 else
