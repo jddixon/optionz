@@ -13,8 +13,8 @@ __all__ = ['__version__', '__version_date__',
            'IntOption', 'ListOption', 'StrOption',
            ]
 
-__version__ = '0.1.12'
-__version_date__ = '2016-08-15'
+__version__ = '0.1.13'
+__version_date__ = '2016-08-16'
 
 
 class Singleton(type):
