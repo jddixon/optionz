@@ -1,5 +1,7 @@
 # optionz/.dvcz/projCfg.local
 
+txt:std:LICENSE-MIT.md
+
 dir:pkg:optionz
 
 code:std:.dvcz/projCfg.local

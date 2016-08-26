@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import enum
+
 # optionz/optionz/__init__.py
 
 __all__ = ['__version__', '__version_date__',
@@ -7,14 +9,14 @@ __all__ = ['__version__', '__version_date__',
            'optionzMaker',
            # classes
            'Singleton', 'MetaOption',
-           # PROvISIONAL:
-           'Optionz',
+           # PROVISIONAL:
+           'Optionz', 'ValType',
            'ZOption', 'BoolOption', 'ChoiceOption', 'FloatOption',
            'IntOption', 'ListOption', 'StrOption',
            ]
 
-__version__ = '0.1.13'
-__version_date__ = '2016-08-16'
+__version__ = '0.1.14'
+__version_date__ = '2016-08-26'
 
 
 class Singleton(type):
@@ -72,7 +74,7 @@ def optionzMaker(**kwargs):
     return MyOptions
 
 #####################################################################
-# EVERYTHING BELOW THIS IS EVEN MORE PROVISIONAL THAN SINGLETON
+# XXX EVEN MORE PROVISIONAL XXX
 #####################################################################
 
 
@@ -106,14 +108,19 @@ class Option(_BaseOption):
     def __contains__(self, key):
         return key in self.__dict__
 
+# XXX END EVEN MORE PROVISIONAL #####################################
+
+
+class ValType(enum.IntEnum):
+    BOOL = 1
+    CHOICE = 2
+    FLOAT = 3
+    INT = 4
+    LIST = 5
+    STR = 6
+
 
 class Optionz (object):
-    O_BOOL = 1
-    O_CHOICE = 2
-    O_FLOAT = 3
-    O_INT = 4
-    O_LIST = 5
-    O_STR = 6
 
     def __init__(self, name, desc=None, epilog=None):
         self._name = name
@@ -135,20 +142,20 @@ class Optionz (object):
     # to handle additional parameters
 
     def addOption(self, name, valType, default=None, desc=None):
-        if valType < self.O_BOOL or valType > self.O_STR:
+        if valType < ValType.BOOL or valType > ValType.STR:
             raise RuntimeError('unrecognized valType %d', valType)
         if name in self._zMap:
             raise ValueError("duplicate option name '%s'" % name)
 
-        if valType == self.O_BOOL:
+        if valType == ValType.BOOL:
             newOption = BoolOption(name, default, desc)
-        elif valType == self.O_FLOAT:
+        elif valType == ValType.FLOAT:
             newOption = FloatOption(name, default, desc)
-        elif valType == self.O_INT:
+        elif valType == ValType.INT:
             newOption = IntOption(name, default, desc)
-        elif valType == self.O_LIST:
+        elif valType == ValType.LIST:
             newOption = ListOption(name, default, desc)
-        elif valType == self.O_STR:
+        elif valType == ValType.STR:
             newOption = StrOption(name, default, desc)
         else:
             raise RuntimeError("uncaught bad option type %d" % valType)
@@ -190,7 +197,7 @@ class ZOption(object):
 class BoolOption(ZOption):
 
     def __init__(self, name, default=False, desc=None):
-        super().__init__(name, Optionz.O_BOOL, default, desc)
+        super().__init__(name, ValType.BOOL, default, desc)
 
     def __eq__(self, other):
         return  isinstance(other, BoolOption)       and \
@@ -207,7 +214,7 @@ class ChoiceOption(ZOption):
     """
 
     def __init__(self, name, choices, default=None, desc=None):
-        super().__init__(name, Optionz.O_CHOICE, default, desc)
+        super().__init__(name, ValType.CHOICE, default, desc)
         self._choices = [ch for ch in choices]
 
         if default and not default in choices:
@@ -229,7 +236,7 @@ class ChoiceOption(ZOption):
 class FloatOption(ZOption):
 
     def __init__(self, name, default=None, desc=None):
-        super().__init__(name, Optionz.O_FLOAT, default, desc)
+        super().__init__(name, ValType.FLOAT, default, desc)
 
     def __eq__(self, other):
         return  isinstance(other, FloatOption)      and \
@@ -241,7 +248,7 @@ class FloatOption(ZOption):
 class IntOption(ZOption):
 
     def __init__(self, name, default=None, desc=None):
-        super().__init__(name, Optionz.O_INT, default, desc)
+        super().__init__(name, ValType.INT, default, desc)
 
     def __eq__(self, other):
         return  isinstance(other, IntOption)      and \
@@ -259,7 +266,7 @@ class ListOption(ZOption):
     """
 
     def __init__(self, name, default=None, desc=None):
-        super().__init__(name, Optionz.O_LIST, default, desc)
+        super().__init__(name, ValType.LIST, default, desc)
 
     # an alias
     @property
@@ -275,7 +282,7 @@ class ListOption(ZOption):
 class StrOption(ZOption):
 
     def __init__(self, name, default=None, desc=None):
-        super().__init__(name, Optionz.O_STR, default, desc)
+        super().__init__(name, ValType.STR, default, desc)
 
     def __eq__(self, other):
         return  isinstance(other, StrOption)      and \

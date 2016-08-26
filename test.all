@@ -11,6 +11,7 @@ then
   ./testMetaClasses.py
   ./testNamedTuples.py
   ./testOptionz.py
+  ./testWithJson.py
   
 else
   echo "DEV_BASE is not defined"
