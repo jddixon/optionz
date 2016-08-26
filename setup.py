@@ -13,13 +13,13 @@ setup(name='optionz',
       version=__version__,
       author='Jim Dixon',
       author_email='jddixon@gmail.com',
-      description='getopt replacement',
-      url='https://jddixon.github.io/optionz',
       py_modules=[],
       # list packages in separate directories
       packages=['optionz', ],
       # following could be in scripts/ subdir
       scripts=[],
+      description='command line options processor',
+      url='https://jddixon.github.io/optionz',
       classifiers=[
           'License :: OSI Approved :: MIT License',
           "Development Status :: 2 - Pre-Alpha",

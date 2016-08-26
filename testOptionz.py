@@ -8,7 +8,7 @@ import unittest
 
 from rnglib import SimpleRNG
 from optionz import Optionz as Z
-from optionz import (ZOption, BoolOption, ChoiceOption,
+from optionz import (ValType, ZOption, BoolOption, ChoiceOption,
                      FloatOption, IntOption, ListOption, StrOption)
 
 
@@ -62,7 +62,7 @@ class TestOptionz (unittest.TestCase):
         self.assertEqual(boolOpt.desc, bDesc)
 
         #                        name    valType     default    desc
-        bCheck = myOptz.addOption('bO', Z.O_BOOL, bDfltVal, bDesc)
+        bCheck = myOptz.addOption('bO', ValType.BOOL, bDfltVal, bDesc)
         self.assertEqual(len(myOptz), 1)
         self.assertEqual(boolOpt, bCheck)
 
@@ -125,7 +125,7 @@ class TestOptionz (unittest.TestCase):
         self.assertEqual(floatOpt.desc, fDesc)
 
         #                        name    valType     default    desc
-        fCheck = myOptz.addOption('fO', Z.O_FLOAT, fDfltVal, fDesc)
+        fCheck = myOptz.addOption('fO', ValType.FLOAT, fDfltVal, fDesc)
         self.assertEqual(len(myOptz), 3)
         self.assertEqual(floatOpt, fCheck)
 
@@ -139,7 +139,7 @@ class TestOptionz (unittest.TestCase):
         self.assertEqual(intOpt.desc, iDesc)
 
         #                        name    valType     default    desc
-        iCheck = myOptz.addOption('iO', Z.O_INT, iDfltVal, iDesc)
+        iCheck = myOptz.addOption('iO', ValType.INT, iDfltVal, iDesc)
         self.assertEqual(len(myOptz), 4)
         self.assertEqual(intOpt, iCheck)
 
@@ -164,7 +164,7 @@ class TestOptionz (unittest.TestCase):
         self.assertEqual(varListOpt.desc, "skinny")
 
         #                        name    valType     default    desc
-        lCheck = myOptz.addOption('lO', Z.O_LIST, sizeVal, lDesc)
+        lCheck = myOptz.addOption('lO', ValType.LIST, sizeVal, lDesc)
         self.assertEqual(len(myOptz), 5)
         self.assertEqual(listOpt, lCheck)
 
@@ -179,7 +179,7 @@ class TestOptionz (unittest.TestCase):
         self.assertEqual(strOpt.desc, sDesc)
 
         #                        name    valType     default    desc
-        sCheck = myOptz.addOption('sO', Z.O_STR, sDfltVal, sDesc)
+        sCheck = myOptz.addOption('sO', ValType.STR, sDfltVal, sDesc)
         self.assertEqual(len(myOptz), 6)
         self.assertEqual(strOpt, sCheck)
 

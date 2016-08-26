@@ -1,4 +1,8 @@
 # ~/dev/optionz/TODO
 
+2016-08-25
+    * testWithJson needs some Json, perhaps to_json() and from_json()
+    * testWithJson tests need a quick review 
+
 2016-03-15
     * need __equal__ for Optionz and so for all types of Options        * DONE
