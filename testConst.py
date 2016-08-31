@@ -19,6 +19,13 @@ class TestConst (unittest.TestCase):
     def tearDown(self):
         pass
 
+    def testModuleLevel(self):
+        # X is not a constnat ---------------------------------------
+        global X
+        self.assertEqual(X, 9123)
+        X = -42
+        self.assertEqual(X, -42)
+
     def testConst(self):
         class Foo(object):
             A = 15
@@ -26,12 +33,6 @@ class TestConst (unittest.TestCase):
             @property
             def B(self):
                 return 997
-
-        # X is not a constnat ---------------------------------------
-        global X
-        self.assertEqual(X, 9123)
-        X = -42
-        self.assertEqual(X, -42)
 
         # A is not a constant ---------------------------------------
         foo = Foo()
@@ -45,7 +46,7 @@ class TestConst (unittest.TestCase):
         # at the instance level, yes, sort of -------------
         try:
             foo.B = 42
-            self.fail("assigned value to foo.B")
+            self.fail("assigned value to foo.B")    # pragma: no cover
         except AttributeError:
             pass
         self.assertEqual(foo.B, 997)
@@ -55,7 +56,8 @@ class TestConst (unittest.TestCase):
         try:
             Foo.B = 42
         except AttributeError:
-            self.fail("got AttributeError assigning an int to Foo.B")
+            self.fail(
+                "got AttributeError assigning an int to Foo.B")  # pragma: no cover
 
         self.assertEqual(Foo.B, 42)         # class attribute overridden
         self.assertEqual(foo.B, 42)         # instance attribute also
@@ -79,7 +81,8 @@ class TestConst (unittest.TestCase):
                     raise self.IronError("Can't change constant %s" % name)
                 self.__dict__[name] = value
 
-            def __delattr__(self, name):
+            # never used
+            def __delattr__(self, name):        # pragma: no cover
                 if name in self.__dict__:
                     raise self.IronError("Can't delete constant %s" % name)
                 else:
@@ -89,7 +92,7 @@ class TestConst (unittest.TestCase):
         e.x = 4421                  # our new constant value
         try:
             e.x = 92
-            self.fail("assigned value to IronMan constant")
+            self.fail("assigned value to IronMan constant")  # pragma: no cover
         except IronMan.IronError:
             pass
         self.assertEqual(e.x, 4421)
@@ -101,7 +104,7 @@ class TestConst (unittest.TestCase):
         # attempts to change the constant fail
         try:
             e.x = 992
-            self.fail("successfully modified constant e.x")
+            self.fail("successfully modified constant e.x")  # pragma: no cover
         except IronMan.IronError:
             pass
         self.assertEqual(e.x, 4421)
@@ -125,7 +128,8 @@ class TestConst (unittest.TestCase):
                     raise self.IronError("Can't change constant %s" % name)
                 self.__dict__[name] = value
 
-            def __delattr__(self, name):
+            # never used
+            def __delattr__(self, name):        # pragma: no cover
                 if name in self.__dict__:
                     raise self.IronError("Can't delete constant %s" % name)
                 else:
@@ -135,7 +139,7 @@ class TestConst (unittest.TestCase):
         d.X = 47                        # we define a constant
         try:
             d.X = 92
-            self.fail("assigned value to IronMan constant")
+            self.fail("assigned value to IronMan constant")  # pragma: no cover
         except IronMan.IronError:
             pass
         self.assertEqual(d.X, 47)

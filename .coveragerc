@@ -1,0 +1,10 @@
+[run]
+branch = True
+omit   = *rnglib*
+
+[report]
+exclude_lines = 
+    # we start from scratch, always
+    pragma: no cover
+
+    from rnglib import

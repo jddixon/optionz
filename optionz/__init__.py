@@ -15,8 +15,12 @@ __all__ = ['__version__', '__version_date__',
            'IntOption', 'ListOption', 'StrOption',
            ]
 
-__version__ = '0.1.14'
-__version_date__ = '2016-08-26'
+__version__ = '0.1.15'
+__version_date__ = '2016-08-31'
+
+
+class OptionzError(RuntimeError):
+    pass
 
 
 class Singleton(type):
@@ -143,7 +147,7 @@ class Optionz (object):
 
     def addOption(self, name, valType, default=None, desc=None):
         if valType < ValType.BOOL or valType > ValType.STR:
-            raise RuntimeError('unrecognized valType %d', valType)
+            raise OptionzError('unrecognized valType %d', valType)
         if name in self._zMap:
             raise ValueError("duplicate option name '%s'" % name)
 
@@ -158,7 +162,7 @@ class Optionz (object):
         elif valType == ValType.STR:
             newOption = StrOption(name, default, desc)
         else:
-            raise RuntimeError("uncaught bad option type %d" % valType)
+            raise OptionzError("uncaught bad option type %d" % valType)
 
         self._zMap[name] = newOption
         self._zOptions.append(newOption)
@@ -218,7 +222,7 @@ class ChoiceOption(ZOption):
         self._choices = [ch for ch in choices]
 
         if default and not default in choices:
-            raise RuntimeError("default value '%s' is not in %s's choices" % (
+            raise OptionzError("default value '%s' is not in %s's choices" % (
                 default, name))
 
     @property
