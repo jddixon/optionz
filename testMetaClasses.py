@@ -6,14 +6,13 @@ import os
 import time
 import unittest
 
-from rnglib import SimpleRNG
 from optionz import optionzMaker, Singleton, MetaOption
 
 
 class TestMetaClasses (unittest.TestCase):
 
     def setUp(self):
-        self.rng = SimpleRNG(time.time())
+        pass
 
     def tearDown(self):
         pass
@@ -90,14 +89,16 @@ class TestMetaClasses (unittest.TestCase):
         # immutability the Python way
         try:
             koo1.a = 997
-            self.fail("successfully changed attribute value")
+            self.fail(
+                "successfully changed attribute value")   # pragma: no cover
         except AttributeError:
             pass
         self.assertEqual(koo1.a, 15)
 
         try:
             Koo.a = 31415926536
-            self.fail("successfully changed attribute value")
+            self.fail(
+                "successfully changed attribute value")   # pragma: no cover
         except AttributeError:
             pass
         self.assertEqual(Koo.a, 15)
@@ -123,14 +124,16 @@ class TestMetaClasses (unittest.TestCase):
         try:
             koo1.a = 1066
             self.assertEqual(koo1.a, 1066)
-            fail("successfully changed instance attribute")
+            self.fail(
+                "successfully changed instance attribute")  # pragma: no cover
         except AttributeError:
             pass
 
         # we want this assignment to fail
         try:
             Koo.a = 2718281828459
-            self.fail("successfully changed class attribute")
+            self.fail(
+                "successfully changed class attribute")   # pragma: no cover
         except AttributeError:
             pass
         self.assertEqual(Koo.a, 13)

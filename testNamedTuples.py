@@ -7,22 +7,9 @@ import time
 import unittest
 
 from collections import namedtuple
-from rnglib import SimpleRNG
-
-
-class EmptyClass():
-    pass
-
-
-def simpleAdder(self, a, b):
-    return a + b
 
 
 class TestNamedTuples (unittest.TestCase):
-
-    def setUp(self): pass
-
-    def tearDown(self): pass
 
     def testFunctionality(self):
         """
@@ -53,20 +40,20 @@ class TestNamedTuples (unittest.TestCase):
         # Immutability, attribute access.
         try:
             upper.a = 997
-            self.fail("upper.a isn't immutable")
+            self.fail("upper.a isn't immutable")        # pragma: no cover
         except AttributeError:
             self.assertEqual(upper.a, 'val0')
 
         try:
             upper.b = 'happiness'
-            self.fail("upper.b isn't immutable")
+            self.fail("upper.b isn't immutable")        # pragma: no cover
         except AttributeError:
             # __eq__ works too
             self.assertEqual(upper.b, lower)
 
         try:
             upper.b.c = 'foo'
-            self.fail("upper.b.c isn't immutable")
+            self.fail("upper.b.c isn't immutable")      # pragma: no cover
         except AttributeError:
             self.assertEqual(upper.b.c, 13)
 
@@ -74,16 +61,15 @@ class TestNamedTuples (unittest.TestCase):
         #   "object does not support item assignment"
         try:
             upper[1][1] = 1942
-            self.fail("upper[1][1] isn't immutable")
+            self.fail("upper[1][1] isn't immutable")    # pragma: no cover
         except TypeError:
             self.assertEqual(upper[1][1], 'dddD')
 
         try:
             upper[2] = 'baz'
-            self.fail("upper[2] isn't immutable")
+            self.fail("upper[2] isn't immutable")       # pragma: no cover
         except TypeError:
             self.assertEqual(upper[2], 42)
-
 
 if __name__ == '__main__':
     unittest.main()

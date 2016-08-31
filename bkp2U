@@ -8,6 +8,7 @@ then
     -d ../optionz \
     -1L  \
     -u $DVCZ_UDIR \
+    -X cover \
     -X .ssh \
     $@
   

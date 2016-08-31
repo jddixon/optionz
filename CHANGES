@@ -1,6 +1,9 @@
 # ~/dev/py/optionzy/CHANGES
 
 
+v0.1.15
+    2016-08-31
+        * coverage from 91% to 94%                                  SLOC 1544
 v0.1.14
     2016-08-26
         * add testWithJson.py (without an Json)                     SLOC 1498
@@ -52,6 +55,7 @@ v0.0.2
 v0.0.1
     2016-03-13
         * initial build                                             SLOC   22
+
 
 
 

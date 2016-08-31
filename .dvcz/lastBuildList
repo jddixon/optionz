@@ -7,26 +7,29 @@ zPjEShF9rvcNa9XEy1dKpcDz9Szbm2SlxOgM83fDDGtOq4SSCSqndtxrOvXXPB57
 H1mJV/FmerbXRPm5ERJVNIxtLk7Gr2Ce45FVlWyJGMhpfVlKkkk+bRQ02OFfazJI
 GQIDAQAB
 -----END RSA PUBLIC KEY-----
-optionz v0.1.14
-2016-08-26 18:17:58
+optionz v0.1.15
+2016-08-31 18:35:36
 # BEGIN CONTENT #
 optionz
+ .coveragerc a9aacaff99a70128f33b05d09426590c5585d0b8
  .dvcz
-  builds 5426bb70d765b6ab97859bfbe6b4f86b80e1156d
+  builds dad90b4653f8afbd1d6715d926ec8ab32dc49924
   copyright 6794cf665112656267cf59917bdfc150e4c4b97c
-  lastBuildList 23f7dfe7e246492c906ea2d90dd53471437c2f6c
+  lastBuildList 07b06b61e5e9e75f14dad731a182b581e798b141
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
-  projCfg 75ffd9d9236adb39ce1c07df6d7ea4e173ff4573
-  projCfg.local 50696ca3383b9387ab66b599503c8b49a518441b
-  version 38e7c14ad8d74dc34296dabd40a6c3cdd70c248a
- .gitignore 5f1a04317952b671c5828218c6efe88c2594f8fb
- CHANGES 1714efd00771ff9b694346bd1e0bcee5007112d0
+  projCfg e91627c6a038511ddc0cd3cec398c1728f49366c
+  projCfg.local a49afe7453864d5c7bb629922b10c1d66aeb6a43
+  version e4bbc950196c53fc90eb8465a815831f2782acfc
+ .gitignore 2bc4bcb7826ea9b5fb999444fe18f6785df1de72
+ CHANGES 058d5ec54c0bc308562043479a372ada38059b7a
  LICENSE-MIT.md e82e359e6de3e83b487ab0eda0679762159a3d9d
  MANIFEST.in 3f6739adc81a934f6ac026a34e1d7e8d570ed61d
  README.md 3bc054ca85456fe650bb9db15cc6b8d2486a09ca
  TODO e4944b99faad9e8bf30ad6649fa3a618bb510383
- bkp2U 51f857f1db09e0bab2b81ff6be0dc93d3132d47e
- countem b8a518ecfd82ca226eef45008ff5e5449faefd1d
+ bkp2U 9089d4dcd4bab6a254663f4cbeefb44b425b3deb
+ check.summary ad3b67d38ad1e2f3a85f8c64e098841671b16c5d
+ checkCoverage b3c6ba3dcb3548921187113452dac7b77bb3e43c
+ countem 705bc016365f74c79fb61bc7edd75cca020556c4
  dist
   optionz-0.1.0.tar.gz 2cc47d2fa6be4aea3ddb85f09bdb456ee6fbd75f
   optionz-0.1.1.tar.gz 44348422c9e6ecc0350cf661219d843a916c5801
@@ -35,6 +38,7 @@ optionz
   optionz-0.1.12.tar.gz d4b60ba14dba9e5cc098c4fd1bdc31e0a9af0ccf
   optionz-0.1.13.tar.gz a9c5055e04de6f7de9fa2ff99b0923a4e698a572
   optionz-0.1.14.tar.gz 54e54d3bb2120119e1167e8d13c7bfcb129082ae
+  optionz-0.1.15.tar.gz 0b77787f109bcc96b9d1be2eef720ad89c944d45
   optionz-0.1.2.tar.gz 9e3c533549926f732646a90391a90b30b82a5412
   optionz-0.1.3.tar.gz 15c888be605f89e151b210e3f71f311abada8dc2
   optionz-0.1.4.tar.gz 9a4edb078f3e79b92c9b60ae1bd1238605c9d646
@@ -61,18 +65,18 @@ optionz
   index.md bf5983933ca4d7d0a9b0c6237afa2b204e123fc0
  installit 770b458f2e9c4e88de6221b8b062620abe5337f1
  optionz
-  __init__.py e48ae55aa881edb3beb6a703a24bdfed722792e9
+  __init__.py f23a0b82ab3dfd8cf70067d19332ada19ebc0e5f
  setup.py c7048583745906f238fdc0031174468bd8312edf
  styleit ccfa981aa8a805d81a9f04977596f45076875008
  test.all fd8b86267f7abcf60fb9b8839353ba596c5ff692
  testAddingFunctions.py 4862d4a6bccbe2eba6eaf62768a240fc8f3765b4
  testBaseOption.py e905316555ca394e70c822d8847931f81b7482be
  testClassMaker.py 4bda6e0d95bbe834abb42eb765de3f95152d9b9f
- testConst.py bfd0353be165d69df5374dceb3c84280945b0095
- testMetaClasses.py df1431559b25153379e81ea626c110f0e182bbc4
- testNamedTuples.py 1f6c5d9af0127603597d5d4de9ac5c5d3cd8230c
+ testConst.py b08f2e6cdababdc93ebfcc7df23c6d0f98f20e6d
+ testMetaClasses.py 407368a0bf3a52b501b20fed5bfa4671684c15ac
+ testNamedTuples.py 681a827be20408a85a42673b66e1702f51d75b06
  testOptionz.py 97eb68fe8fed20c9996bf91cdec11cd71349e364
  testWithJson.py 4c92ffab791eddb8e1079f2660ac1f2ca3498ea3
 # END CONTENT #
 
-OlmzKLZEVPsldUkrdm10aIjfTPfvJliIF/4QdroSfxfjMjf/RMR93DvoW8Vjcit1S7lnJIEgh4/brPynlGPcTSHPciAwZFh4UuceeIeLYomTIkHa6lv5seZFpbcEBz7CWHD5v8NVdHRLke3O7YyScbjVq5zTe5bTidvdSYNjNWIa+9r8uvYDKgoiDnH7exKacjz0ktjKG5FQAkchgJI+y2WB/FwTPYDoceRkWhRucFSSg6ds6DuYNGoP5UrlszPCKbUULLiQ3we6DAp+bbFZGQ1leSbtRVVAXmwFfWmAFKxFFk1VcezVrfBmmQMoYYRu9G2pYQmpe5Xe8033tEkcLw==
+c+Eczmf4DW3vSS9q8aNWYXs159cPvGfDW8zUIz3I88FRV2AHGwC2UEBqWdIb3u1O1F15iYzQoxlJ7IVxez2WGfGQTpfngZygTaG4eRgWCyV0soFBaORZkKqMmHHjbPJ021f1F8xgR7QXxpRvvYkOUC0jQe2YIdR/iyU6f2ugL+ikA85zZHdMBRjViNQovYcfl4ghbrHXcTta41wXm/q86MZLdkvUiuzFa8AftJoOLfTS7dc3yJwd3BCXbivSc7UIuv2JWEABr9IcCHyPFSmyqLTZiKAVP6QrptDKSw1fFqUbxvy7L0N5AGmctzUj4xy+jpQIK/wzZFm4/glYxgvSBQ==
