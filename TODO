@@ -5,4 +5,4 @@
     * testWithJson tests need a quick review 
 
 2016-03-15
-    * need __equal__ for Optionz and so for all types of Options        * DONE
+    * need __eq__ for Optionz and so for all types of Options           * DONE

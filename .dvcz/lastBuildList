@@ -7,29 +7,29 @@ zPjEShF9rvcNa9XEy1dKpcDz9Szbm2SlxOgM83fDDGtOq4SSCSqndtxrOvXXPB57
 H1mJV/FmerbXRPm5ERJVNIxtLk7Gr2Ce45FVlWyJGMhpfVlKkkk+bRQ02OFfazJI
 GQIDAQAB
 -----END RSA PUBLIC KEY-----
-optionz v0.1.15
-2016-08-31 18:35:36
+optionz v0.1.16
+2016-09-15 18:08:47
 # BEGIN CONTENT #
 optionz
  .coveragerc a9aacaff99a70128f33b05d09426590c5585d0b8
  .dvcz
-  builds dad90b4653f8afbd1d6715d926ec8ab32dc49924
+  builds 0fe254fbdf07351e7dd8d9f666a6e802a72ec9d7
   copyright 6794cf665112656267cf59917bdfc150e4c4b97c
-  lastBuildList 07b06b61e5e9e75f14dad731a182b581e798b141
+  lastBuildList 11bd9b586106e6761f3839642130a2ed50c974f5
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
   projCfg e91627c6a038511ddc0cd3cec398c1728f49366c
   projCfg.local a49afe7453864d5c7bb629922b10c1d66aeb6a43
-  version e4bbc950196c53fc90eb8465a815831f2782acfc
+  version 76d76dbd52b0d7fae36763356fe29fd76212c4da
  .gitignore 2bc4bcb7826ea9b5fb999444fe18f6785df1de72
- CHANGES 058d5ec54c0bc308562043479a372ada38059b7a
+ CHANGES e0ea2c2b03f0c9342c38503c1108bca89de401a4
  LICENSE-MIT.md e82e359e6de3e83b487ab0eda0679762159a3d9d
  MANIFEST.in 3f6739adc81a934f6ac026a34e1d7e8d570ed61d
- README.md 3bc054ca85456fe650bb9db15cc6b8d2486a09ca
- TODO e4944b99faad9e8bf30ad6649fa3a618bb510383
+ README.md 7cfb538f87104d8e6688d880197ac1a56c41f073
+ TODO b9141779facb8e6597471d52c2023d1a4d622429
  bkp2U 9089d4dcd4bab6a254663f4cbeefb44b425b3deb
- check.summary ad3b67d38ad1e2f3a85f8c64e098841671b16c5d
  checkCoverage b3c6ba3dcb3548921187113452dac7b77bb3e43c
  countem 705bc016365f74c79fb61bc7edd75cca020556c4
+ coverage.summary f39fa9ea5fe3d24f86b5c6d5622053c99ce6fd4b
  dist
   optionz-0.1.0.tar.gz 2cc47d2fa6be4aea3ddb85f09bdb456ee6fbd75f
   optionz-0.1.1.tar.gz 44348422c9e6ecc0350cf661219d843a916c5801
@@ -39,6 +39,7 @@ optionz
   optionz-0.1.13.tar.gz a9c5055e04de6f7de9fa2ff99b0923a4e698a572
   optionz-0.1.14.tar.gz 54e54d3bb2120119e1167e8d13c7bfcb129082ae
   optionz-0.1.15.tar.gz 0b77787f109bcc96b9d1be2eef720ad89c944d45
+  optionz-0.1.16.tar.gz 13e57b42ce4bd7aceef4fb1816e230746aa7c06a
   optionz-0.1.2.tar.gz 9e3c533549926f732646a90391a90b30b82a5412
   optionz-0.1.3.tar.gz 15c888be605f89e151b210e3f71f311abada8dc2
   optionz-0.1.4.tar.gz 9a4edb078f3e79b92c9b60ae1bd1238605c9d646
@@ -62,10 +63,10 @@ optionz
    simple-cluster.jpg 6b223ddd25937c1ef75ef328f36fc3436f10bd62
    xl-registration.jpg 15cbf951f9db173a45428b32dcec87aca83bbdf0
    xlattice-2014.jpg f185aaad06db71acd9454f31054c62c56d36f37f
-  index.md bf5983933ca4d7d0a9b0c6237afa2b204e123fc0
+  index.md faf2643bb5f24bf04d6692b6b74190267ce747e1
  installit 770b458f2e9c4e88de6221b8b062620abe5337f1
  optionz
-  __init__.py f23a0b82ab3dfd8cf70067d19332ada19ebc0e5f
+  __init__.py f16df4d1a0fdf9dee6488005687e15469eeefbab
  setup.py c7048583745906f238fdc0031174468bd8312edf
  styleit ccfa981aa8a805d81a9f04977596f45076875008
  test.all fd8b86267f7abcf60fb9b8839353ba596c5ff692
@@ -79,4 +80,4 @@ optionz
  testWithJson.py 4c92ffab791eddb8e1079f2660ac1f2ca3498ea3
 # END CONTENT #
 
-c+Eczmf4DW3vSS9q8aNWYXs159cPvGfDW8zUIz3I88FRV2AHGwC2UEBqWdIb3u1O1F15iYzQoxlJ7IVxez2WGfGQTpfngZygTaG4eRgWCyV0soFBaORZkKqMmHHjbPJ021f1F8xgR7QXxpRvvYkOUC0jQe2YIdR/iyU6f2ugL+ikA85zZHdMBRjViNQovYcfl4ghbrHXcTta41wXm/q86MZLdkvUiuzFa8AftJoOLfTS7dc3yJwd3BCXbivSc7UIuv2JWEABr9IcCHyPFSmyqLTZiKAVP6QrptDKSw1fFqUbxvy7L0N5AGmctzUj4xy+jpQIK/wzZFm4/glYxgvSBQ==
+UMESACknwOyYoKBHTRrsIlDQwb87WznA+a2yFUXW6S5XxZr/Z26VESJc8xAPMLxtZ697EYrNZwN1wOAcvYFvaBoO8qLQjXVP8tyebrOuRdQfZbyNFiWpvQZCF2Hy4YkMMlw9wHj9FgfC43h2GLY5JTFKRJeEvCttzbyU6PlLhhQwTCmpP1yj7RkT//6iLoUlZtBP2rm6svyBNFvjixn34hoEopXVJFwDvL3p/x+cHUoSEWgwJZ40hk/o14Jx41RDJFZgm9d9rTqamFPXVXRxTnp+y/5GiEdhRCPuXxP9isz1ZLxzrtfJaG43LOfdcvp8GSYNt/m9OI0N8z6Cc8/A5A==
