@@ -1,35 +1,35 @@
 #!/usr/bin/env python3
-
 # testNamedTuples.py
 
-import os
-import time
+""" Test named tuples. """
+
 import unittest
 
 from collections import namedtuple
 
 
-class TestNamedTuples (unittest.TestCase):
+class TestNamedTuples(unittest.TestCase):
+    """ Test behavior of named tuples. """
 
-    def testFunctionality(self):
+    def test_functionality(self):
         """
         Nested named tuples work more or less as expected.  Lower-level
         tuples must be built first, because the tuples are immutable.
         """
 
         # creation of lower-level tuple
-        TwoPair = namedtuple('TwoPair', ['c', 'd'])
-        lower = TwoPair(13, 'dddD')
+        two_pair = namedtuple('TwoPair', ['c__', 'd__'])
+        lower = two_pair(13, 'dddD')
 
         # create upper-level tuple
-        Threesome = namedtuple('Threesome', ['a', 'b', 'e'])
-        upper = Threesome(a='val0', b=lower, e=42)
+        threesome = namedtuple('Threesome', ['a__', 'b__', 'e__'])
+        upper = threesome(a__='val0', b__=lower, e__=42)
 
         # attribute notation
-        self.assertEqual(upper.a, 'val0')
-        self.assertEqual(upper.b.c, 13)
-        self.assertEqual(upper.b.d, 'dddD')
-        self.assertEqual(upper.e, 42)
+        self.assertEqual(upper.a__, 'val0')
+        self.assertEqual(upper.b__.c__, 13)
+        self.assertEqual(upper.b__.d__, 'dddD')
+        self.assertEqual(upper.e__, 42)
 
         # indexed access
         self.assertEqual(upper[0], 'val0')
@@ -39,23 +39,23 @@ class TestNamedTuples (unittest.TestCase):
 
         # Immutability, attribute access.
         try:
-            upper.a = 997
-            self.fail("upper.a isn't immutable")        # pragma: no cover
+            upper.a__ = 997
+            self.fail("upper.a__ isn't immutable")        # pragma: no cover
         except AttributeError:
-            self.assertEqual(upper.a, 'val0')
+            self.assertEqual(upper.a__, 'val0')
 
         try:
-            upper.b = 'happiness'
-            self.fail("upper.b isn't immutable")        # pragma: no cover
+            upper.b__ = 'happiness'
+            self.fail("upper.b__ isn't immutable")        # pragma: no cover
         except AttributeError:
             # __eq__ works too
-            self.assertEqual(upper.b, lower)
+            self.assertEqual(upper.b__, lower)
 
         try:
-            upper.b.c = 'foo'
-            self.fail("upper.b.c isn't immutable")      # pragma: no cover
+            upper.b__.c__ = 'foo'
+            self.fail("upper.b__.c__ isn't immutable")      # pragma: no cover
         except AttributeError:
-            self.assertEqual(upper.b.c, 13)
+            self.assertEqual(upper.b__.c__, 13)
 
         # Immutability, indexed assignment: we get a TypeError:
         #   "object does not support item assignment"

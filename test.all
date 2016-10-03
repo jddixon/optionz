@@ -4,14 +4,14 @@ if [ ! -z "${DEV_BASE// }" ]
 then
   cd $DEV_BASE/py/optionz
   
-  ./testAddingFunctions.py
-  ./testBaseOption.py
-  ./testClassMaker.py
-  ./testConst.py
-  ./testMetaClasses.py
-  ./testNamedTuples.py
-  ./testOptionz.py
-  ./testWithJson.py
+  ./test_adding_functions.py
+  ./test_base_options.py
+  ./test_class_maker.py
+  ./test_const.py
+  ./test_meta_classes.py
+  ./test_named_tuples.py
+  ./test_optionz.py
+  ./test_with_json.py
   
 else
   echo "DEV_BASE is not defined"
