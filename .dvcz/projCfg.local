@@ -1,8 +1,10 @@
 # optionz/.dvcz/projCfg.local
 
 txt:std:LICENSE-MIT.md
+
 dir:ign:cover
 dir:ign;htmlcov
+txt:ign:coverage.summary
 
 dir:pkg:optionz
 

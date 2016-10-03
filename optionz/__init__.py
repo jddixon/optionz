@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 
+""" Option class and supporting cast. """
+
 import enum
 
 # optionz/optionz/__init__.py
 
 __all__ = ['__version__', '__version_date__',
            # functions
-           'optionzMaker',
+           'optionz_maker',
            # classes
            'Singleton', 'MetaOption',
            # PROVISIONAL:
@@ -15,11 +17,12 @@ __all__ = ['__version__', '__version_date__',
            'IntOption', 'ListOption', 'StrOption',
            ]
 
-__version__ = '0.1.16'
-__version_date__ = '2016-09-15'
+__version__ = '0.2.0'
+__version_date__ = '2016-10-03'
 
 
 class OptionzError(RuntimeError):
+    """ Optionz-related exceptions class. """
     pass
 
 
@@ -29,34 +32,37 @@ class Singleton(type):
     """
     _instance = None
 
-    def __new__(cls, *args, **kwargs):
-        if not cls is Singleton._instance:
-            Singleton._instance = cls
+    def __new__(mcs, *args, **kwargs):
+        if Singleton._instance is None:
+            Singleton._instance = mcs
         return Singleton._instance
 
 
 class Immutable(object):
+    """ Define immutable class/object -- currently unused. """
 
     def __setattr__(self, name, value):
+        """ Overrides standard function. """
         raise AttributeError("attempt to change immutable value")
 
 
 class MetaOption(type):
+    """ Metaclass for Option. """
 
     @classmethod
-    def __prepare__(metacls, name, bases, **kwargs):
+    def __prepare__(mcs, name, bases, **kwargs):
         """
         Optional.  Here we use kwargs to set attributes of the
         class. Need to return a dictionary-like object.
         """
         return dict(kwargs)
 
-    def __new__(cls, name, bases, namespace, **kwargs):
+    def __new__(mcs, name, bases, namespace, **kwargs):
         """
         Creates the class; may need to cast namespace to dict.
         Omit kwargs from call to __new__().
         """
-        Clz = super().__new__(cls, name, bases, namespace)
+        Clz = super().__new__(mcs, name, bases, namespace)
         return Clz
 
     def __init__(cls, name, bases, namespace, **kwargs):
@@ -72,22 +78,28 @@ class MetaOption(type):
 #    raise AttributeError("attempt to change immutable value")
 
 
-def optionzMaker(**kwargs):
+def optionz_maker(**kwargs):
+    """ Return an Options class inheriting from Singleton and MetaOption. """
     class MyOptions(Singleton, metaclass=MetaOption, **kwargs):
+        """ That Options class. """
         pass
     return MyOptions
 
 #####################################################################
-# XXX EVEN MORE PROVISIONAL XXX
+# NOTE EVEN MORE PROVISIONAL
 #####################################################################
 
 
 class _BaseOption(object):
-
+    """ Unused base class for options. """
     pass
 
 
 class Option(_BaseOption):
+    """
+    Carrier for a collection of what we hope are immutable key-value
+    pairs.  These are passed to the constructor as kwargs.
+    """
 
     def __init__(self, **kwargs):
         for name in kwargs:
@@ -98,9 +110,9 @@ class Option(_BaseOption):
             return False
 
         # DEBUG
-        print("eq:")
-        print("  self:  %s" % self.__dict__)
-        print("  other: %s" % other.__dict__)
+        # print("eq:")
+        #print("  self:  %s" % self.__dict__)
+        #print("  other: %s" % other.__dict__)
         # END
         return self.__dict__ == other.__dict__
 
@@ -112,10 +124,11 @@ class Option(_BaseOption):
     def __contains__(self, key):
         return key in self.__dict__
 
-# XXX END EVEN MORE PROVISIONAL #####################################
+# END EVEN MORE PROVISIONAL #########################################
 
 
 class ValType(enum.IntEnum):
+    """ Enumerate argument types currently supported. """
     BOOL = 1
     CHOICE = 2
     FLOAT = 3
@@ -124,63 +137,85 @@ class ValType(enum.IntEnum):
     STR = 6
 
 
-class Optionz (object):
+class Optionz(object):
+    """
+    Metadata used in interpreting a sequence of command line
+    arguments.
+    """
 
     def __init__(self, name, desc=None, epilog=None):
         self._name = name
         self._desc = desc           # short, top of help message
         self._epilog = epilog       # footer for help message
-        self._zOptions = []
-        self._zMap = {}
+        self._z_options = []
+        self._z_map = {}
 
     @property
-    def name(self): return self._name
+    def name(self):
+        return self._name
 
     @property
-    def desc(self): return self._desc
+    def desc(self):
+        return self._desc
 
     @property
     def epilog(self): return self._epilog
 
-    # Possibly want to add 'def addChoiceOption()' and 'def addListOption'
+    # Possibly want to add 'def add_choice_option()' and 'def add_list_option'
     # to handle additional parameters
 
-    def addOption(self, name, valType, default=None, desc=None):
+    def add_option(self, name, valType, default=None, desc=None):
+        """
+        Add metadata used in handling a command line argument, including its
+        name, base type (int, str, etc), default value, and the description
+        used in help messages.
+        """
         if valType < ValType.BOOL or valType > ValType.STR:
             raise OptionzError('unrecognized valType %d', valType)
-        if name in self._zMap:
+        if name in self._z_map:
             raise ValueError("duplicate option name '%s'" % name)
 
         if valType == ValType.BOOL:
-            newOption = BoolOption(name, default, desc)
+            new_option = BoolOption(name, default, desc)
         elif valType == ValType.FLOAT:
-            newOption = FloatOption(name, default, desc)
+            new_option = FloatOption(name, default, desc)
         elif valType == ValType.INT:
-            newOption = IntOption(name, default, desc)
+            new_option = IntOption(name, default, desc)
         elif valType == ValType.LIST:
-            newOption = ListOption(name, default, desc)
+            new_option = ListOption(name, default, desc)
         elif valType == ValType.STR:
-            newOption = StrOption(name, default, desc)
+            new_option = StrOption(name, default, desc)
         else:
             raise OptionzError("uncaught bad option type %d" % valType)
 
-        self._zMap[name] = newOption
-        self._zOptions.append(newOption)
-        return newOption
+        self._z_map[name] = new_option
+        self._z_options.append(new_option)
+        return new_option
 
-    def addChoiceOption(self, name, choices, default=None, desc=None):
-        if name in self._zMap:
+    def add_choice_option(self, name, choices, default=None, desc=None):
+        """
+        Add choice metadata to a collection of command line options.
+        """
+        if name in self._z_map:
             raise ValueError("duplicate option name '%s'" % name)
-        newOption = ChoiceOption(name, choices, default, desc)
-        self._zMap[name] = newOption
-        self._zOptions.append(newOption)
-        return newOption
+        new_option = ChoiceOption(name, choices, default, desc)
+        self._z_map[name] = new_option
+        self._z_options.append(new_option)
+        return new_option
 
     def __len__(self):
-        return len(self._zOptions)
+        """
+        Return the number of distinct option types.  A single set of
+        choices, for example, or a list of variable length will each
+        increase this value by one.  In other words, it is not generally
+        the same as the number of arguments in any particular command line.
+
+        """
+        return len(self._z_options)
 
 
 class ZOption(object):
+    """ Basic attributes of an Option: name, type, default, desc."""
 
     def __init__(clz, name, valType, default, desc):
         clz._name = name
@@ -205,9 +240,9 @@ class BoolOption(ZOption):
 
     def __eq__(self, other):
         return  isinstance(other, BoolOption)       and \
-            self._name     == other._name       and \
-            self._default  == other._default    and \
-            self._desc == other._desc
+            self._name == other.name               and \
+            self._default == other.default         and \
+            self._desc == other.desc
 
 
 class ChoiceOption(ZOption):
@@ -232,9 +267,9 @@ class ChoiceOption(ZOption):
 
     def __eq__(self, other):
         return  isinstance(other, ChoiceOption)     and \
-            self._name     == other._name       and \
-            self._default  == other._default    and \
-            self._desc == other._desc
+            self._name == other.name       and \
+            self._default == other.default    and \
+            self._desc == other.desc
 
 
 class FloatOption(ZOption):
@@ -244,21 +279,23 @@ class FloatOption(ZOption):
 
     def __eq__(self, other):
         return  isinstance(other, FloatOption)      and \
-            self._name     == other._name       and \
-            self._default  == other._default    and \
-            self._desc == other._desc
+            self._name == other.name       and \
+            self._default == other.default    and \
+            self._desc == other.desc
 
 
 class IntOption(ZOption):
+
+    """ Basic attributes of an Option: name, type, default, desc."""
 
     def __init__(self, name, default=None, desc=None):
         super().__init__(name, ValType.INT, default, desc)
 
     def __eq__(self, other):
         return  isinstance(other, IntOption)      and \
-            self._name     == other._name       and \
-            self._default  == other._default    and \
-            self._desc == other._desc
+            self._name == other.name       and \
+            self._default == other.default    and \
+            self._desc == other.desc
 
 
 class ListOption(ZOption):
@@ -278,9 +315,9 @@ class ListOption(ZOption):
 
     def __eq__(self, other):
         return  isinstance(other, ListOption)       and \
-            self._name     == other._name       and \
-            self._default  == other._default    and \
-            self._desc == other._desc
+            self._name == other.name       and \
+            self._default == other.default    and \
+            self._desc == other.desc
 
 
 class StrOption(ZOption):
@@ -290,6 +327,6 @@ class StrOption(ZOption):
 
     def __eq__(self, other):
         return  isinstance(other, StrOption)      and \
-            self._name     == other._name       and \
-            self._default  == other._default    and \
-            self._desc == other._desc
+            self._name == other.name       and \
+            self._default == other.default    and \
+            self._desc == other.desc

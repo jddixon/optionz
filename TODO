@@ -1,5 +1,8 @@
 # ~/dev/optionz/TODO
 
+2016-10-03
+    * singletons have stopped working (test_meta_classes.py)
+
 2016-08-25
     * testWithJson needs some Json, perhaps to_json() and from_json()
     * testWithJson tests need a quick review 
