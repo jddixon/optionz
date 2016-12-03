@@ -16,10 +16,17 @@ class SimpleClass():
 
     def subtractor(self, x_val, y_val):
         """ Toy function for testing. """
-        return x_val - y_val
+        return x_val - y_val + self.A42
+
+    def nada(self):
+        """ Another toy function, never used at all. """
+        return self.A42 - 42
 
 # Not an indentation error!  These functions are defined at the
 # module level.
+
+# pylint: disable=attribute-defined-outside-init
+# pylint: disable=unused-argument
 
 
 def simple_adder(self, a_val, b_val):
@@ -27,6 +34,8 @@ def simple_adder(self, a_val, b_val):
     return a_val + b_val
 
 
+# pylint: disable=attribute-defined-outside-init
+# pylint: disable=unused-argument
 def add42(self, a_val):
     """ Add a class constant to a variable. """
     return a_val + self.A42
@@ -57,11 +66,13 @@ class TestAddingFunctions(unittest.TestCase):
         # Test adding a function to an instance; this syntax is
         # specific to Python3.
         #           'object'           'instnace'  'owner'
+        # pylint: disable=no-member
         obj.adder = simple_adder.__get__(SimpleClass, obj)
         self.assertEqual(obj.adder(x_val, y_val), x_val + y_val)
 
         # Confirm that 'self' is interpreted correctly in the added
         # functions.
+        # pylint: disable=no-member
         obj.plus42 = add42.__get__(SimpleClass, obj)
         self.assertEqual(obj.plus42(q_val), q_val + 42)
 
@@ -69,7 +80,7 @@ class TestAddingFunctions(unittest.TestCase):
         # class.
         self.assertEqual(
             obj.subtractor(obj.plus42(q_val), obj.adder(x_val, r_val)),
-            (q_val + 42) - (x_val + r_val))
+            (q_val + 42) - (x_val + r_val) + 42)
 
 
 if __name__ == '__main__':

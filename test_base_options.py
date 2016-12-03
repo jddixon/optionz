@@ -9,12 +9,15 @@ import unittest
 from rnglib import SimpleRNG
 from optionz import Option
 
+# pylint: disable=too-few-public-methods
+
 
 class EmptyClass():
     """ Stub class, for testing. """
     pass
 
 
+# pylint: disable=unused-argument
 def simple_adder(self, a__, b__):
     """ Simplest possible adder method. """
     return a__ + b__
@@ -39,10 +42,12 @@ class TestBaseOption(unittest.TestCase):
         self.assertFalse('fred' in opt_a)
         # dots work
         self.assertEqual(opt_a.name, 'fred')
+        # pylint: disable=no-member
         self.assertEqual(opt_a.surname, 'jones')
 
         opt_b = Option(name='fred', surname='jones')
         self.assertEqual(opt_b.name, 'fred')
+        # pylint: disable=no-member
         self.assertEqual(opt_b.surname, 'jones')
 
         self.assertEqual(opt_a, opt_a)
@@ -56,6 +61,7 @@ class TestBaseOption(unittest.TestCase):
         self.assertFalse('smith' in opt_c)
         # dots
         self.assertEqual(opt_c.name, 'john')
+        # pylint: disable=no-member
         self.assertEqual(opt_c.surname, 'smith')
 
         self.assertNotEqual(opt_a, opt_c)

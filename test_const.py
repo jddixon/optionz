@@ -32,6 +32,7 @@ class TestConst(unittest.TestCase):
     def test_const(self):
         """ Test class 'constants'. """
 
+        # pylint: disable=too-few-public-methods
         class Foo(object):
             """ Class whose only purpose is to carry a 'constant'. """
             a15 = 15
@@ -79,6 +80,7 @@ class TestConst(unittest.TestCase):
             """ Define a local set-attribute function. """
             self.__dict__[name] = value
 
+        # pylint: disable=too-few-public-methods
         class IronMan(object):
             """ A class which we trust will be bullet-proof."""
 
@@ -102,8 +104,10 @@ class TestConst(unittest.TestCase):
                     raise NameError(name)
 
         iron = IronMan()
+        # pylint: disable=attribute-defined-outside-init
         iron.x__ = 47                        # we define a constant
         try:
+            # pylint: disable=attribute-defined-outside-init
             iron.x__ = 92
             self.fail("assigned value to IronMan constant")  # pragma: no cover
         except IronMan.IronError:
@@ -114,6 +118,7 @@ class TestConst(unittest.TestCase):
         # the 'constant can be changed
         IronMan.__setattr__ = my_set_attr
         self.assertEqual(IronMan.__setattr__, my_set_attr)
+        # pylint: disable=attribute-defined-outside-init
         iron.x__ = 17
         self.assertEqual(iron.x__, 17)
 

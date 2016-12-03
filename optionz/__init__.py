@@ -17,8 +17,8 @@ __all__ = ['__version__', '__version_date__',
            'IntOption', 'ListOption', 'StrOption',
            ]
 
-__version__ = '0.2.0'
-__version_date__ = '2016-10-03'
+__version__ = '0.2.1'
+__version_date__ = '2016-12-03'
 
 
 class OptionzError(RuntimeError):
@@ -32,10 +32,21 @@ class Singleton(type):
     """
     _instance = None
 
-    def __new__(mcs, *args, **kwargs):
-        if Singleton._instance is None:
-            Singleton._instance = mcs
-        return Singleton._instance
+    def __call__(cls, *args, **kwargs):
+        # DEBUG
+        print("entering Singleton.__call__")
+        # END
+        if cls._instance is None:
+            # DEBUG
+            print("    ._instance IS None")
+            print("        about to call super() = type()")
+            # END
+            cls._instance = super().__call__(*args, **kwargs)
+        # DEBUG
+        else:
+            print("    _instance is NOT None")
+        # END
+        return cls._instance
 
 
 class Immutable(object):
@@ -55,6 +66,9 @@ class MetaOption(type):
         Optional.  Here we use kwargs to set attributes of the
         class. Need to return a dictionary-like object.
         """
+        # DEBUG
+        print("\n__PREPARE__")
+        # END
         return dict(kwargs)
 
     def __new__(mcs, name, bases, namespace, **kwargs):
@@ -62,14 +76,31 @@ class MetaOption(type):
         Creates the class; may need to cast namespace to dict.
         Omit kwargs from call to __new__().
         """
-        Clz = super().__new__(mcs, name, bases, namespace)
-        return Clz
+        # DEBUG
+        print("__NEW__")
+        # END
+        obj = type.__new__(mcs, name, bases, namespace)
+        print("    DEBUG: __new__(name=%s) succeeded" % name)
+        return obj
 
     def __init__(cls, name, bases, namespace, **kwargs):
         """
         Omit kwargs from call to __init__().
         """
-        super().__init__(name, bases, namespace)
+        # DEBUG
+        print("__INIT__")
+        # END
+        return super().__init__(name, bases, namespace)
+
+    def __call__(cls, *args, **kwargs):
+        """ Instantiates instances of the class. """
+        # DEBUG
+        print("__CALL__, cls = %s" % cls.__name__)
+        # END
+        # gets "type() takes 1 or 3 arguments"
+        obj = type.__call__(cls, *args, **kwargs)        # XXX ERROR
+        print("    DEBUG: __call__ succeeded")
+        return obj
 
     def __setattr__(cls, key, value):
         raise AttributeError("attempt to change immutable value")
@@ -164,29 +195,29 @@ class Optionz(object):
     # Possibly want to add 'def add_choice_option()' and 'def add_list_option'
     # to handle additional parameters
 
-    def add_option(self, name, valType, default=None, desc=None):
+    def add_option(self, name, val_type, default=None, desc=None):
         """
         Add metadata used in handling a command line argument, including its
         name, base type (int, str, etc), default value, and the description
         used in help messages.
         """
-        if valType < ValType.BOOL or valType > ValType.STR:
-            raise OptionzError('unrecognized valType %d', valType)
+        if val_type < ValType.BOOL or val_type > ValType.STR:
+            raise OptionzError('unrecognized val_type %d', val_type)
         if name in self._z_map:
             raise ValueError("duplicate option name '%s'" % name)
 
-        if valType == ValType.BOOL:
+        if val_type == ValType.BOOL:
             new_option = BoolOption(name, default, desc)
-        elif valType == ValType.FLOAT:
+        elif val_type == ValType.FLOAT:
             new_option = FloatOption(name, default, desc)
-        elif valType == ValType.INT:
+        elif val_type == ValType.INT:
             new_option = IntOption(name, default, desc)
-        elif valType == ValType.LIST:
+        elif val_type == ValType.LIST:
             new_option = ListOption(name, default, desc)
-        elif valType == ValType.STR:
+        elif val_type == ValType.STR:
             new_option = StrOption(name, default, desc)
         else:
-            raise OptionzError("uncaught bad option type %d" % valType)
+            raise OptionzError("uncaught bad option type %d" % val_type)
 
         self._z_map[name] = new_option
         self._z_options.append(new_option)
@@ -217,11 +248,11 @@ class Optionz(object):
 class ZOption(object):
     """ Basic attributes of an Option: name, type, default, desc."""
 
-    def __init__(clz, name, valType, default, desc):
-        clz._name = name
-        clz._type = valType
-        clz._default = default
-        clz._desc = desc       # brief, used in usage()
+    def __init__(self, name, val_type, default, desc):
+        self._name = name
+        self._type = val_type
+        self._default = default
+        self._desc = desc       # brief, used in usage()
 
     @property
     def name(self): return self._name
