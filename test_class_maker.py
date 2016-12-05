@@ -8,10 +8,14 @@ import unittest
 
 from rnglib import SimpleRNG
 
+# pylint:disable=too-few-public-methods
+
 
 class EmptyClass():
     """ Just an empty class. """
     pass
+
+# pylint:disable=unused-argument
 
 
 def simple_adder(self, a__, b__):
@@ -31,6 +35,8 @@ class TestClassMaker(unittest.TestCase):
     def test_maker(self):
         """Actually test making a class."""
 
+        # pylint doesn't see use below
+        # pylint: disable=unused-variable
         class MetaOption(type):
             """ The metaclass definition. """
 
@@ -40,6 +46,7 @@ class TestClassMaker(unittest.TestCase):
                 Optional.  Here we use kwargs to set attributes of the
                 class. Need to return a dictionary-like object.
                 """
+                _, _ = name, bases
                 return dict(kwargs)
 
             def __new__(mcs, name, bases, namespace, **kwargs):
@@ -55,6 +62,7 @@ class TestClassMaker(unittest.TestCase):
                 """
                 super().__init__(name, bases, namespace)
 
+            # pylint: disable=no-self-use
             def foo42(cls):
                 """ Nonsensical function. """
                 return 42
@@ -71,7 +79,9 @@ class TestClassMaker(unittest.TestCase):
                 # adding functions to the class: --------------------
 
                 #               'object'      'instance'    'owner'
+                # pylint: disable=no-member
                 self._foo.c98 = self.c98.__get__(self._foo, ClassMaker)
+                # pylint: disable=no-member
                 self._foo.d199 = self.d199.__get__(self._foo, ClassMaker)
 
                 # end adding funcions -------------------------------
@@ -80,10 +90,12 @@ class TestClassMaker(unittest.TestCase):
                 """ Return the subclass member. """
                 return self._foo
 
+            # pylint: disable=no-self-use
             def c98(self):
                 """ Return an integer. """
                 return 98
 
+            # pylint: disable=no-self-use
             def d199(self):
                 """ Return another integer. """
                 return 199
@@ -97,10 +109,12 @@ class TestClassMaker(unittest.TestCase):
         foo1 = maker1.inst()
 
         # attributes added by parameters to MyOption
+        # pylint: disable=no-member
         self.assertEqual(foo1.a15, 15)
+        # pylint: disable=no-member
         self.assertEqual(foo1.b25, 25)
 
-        # methods added programmtically by ClassMaker
+        # methods added programmatically by ClassMaker
         self.assertEqual(foo1.c98(), 98)
         self.assertEqual(foo1.d199(), 199)
 

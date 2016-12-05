@@ -22,6 +22,7 @@ class TestMetaClasses(unittest.TestCase):
     def test_metaclass_with_keywords(self):
         """ Test passing metaclass attributes as keywords.  """
 
+        # pylint: disable=too-few-public-methods
         class MyOption(metaclass=MetaOption, a__=15, b__=25):
             """ Notice the items being passed as parameters to the class """
             pass
@@ -30,14 +31,20 @@ class TestMetaClasses(unittest.TestCase):
 
         self.assertFalse(obj is None)
         self.assertEqual(len(obj.__dict__), 0)
+        # pylint: disable=no-member
         self.assertEqual(obj.a__, 15)
+        # pylint: disable=no-member
         self.assertEqual(obj.b__, 25)
+        # DEBUG
+        print("test_metaclass_with_keywors() succeeded")
+        # END
 
     # singleton -----------------------------------------------------
 
     def test_singleton(self):
         """ Verify that a singleton really is such. """
 
+        # pylint: disable=too-few-public-methods
         class Foo(metaclass=Singleton):
             """ Simplest singleton. """
             pass
@@ -45,8 +52,27 @@ class TestMetaClasses(unittest.TestCase):
         foo1 = Foo()
         foo2 = Foo()
 
+        self.assertEqual(foo1, foo2)
         # addresses are the same, so this is a true singleton
         self.assertTrue(foo1 is foo2)
+        # DEBUG
+        print("test_singleton() succeeded")
+        # END
+
+#   def test_optionz_as_flipped_singleton(self):
+#       """ Test an Optionz object as a singleton. """
+#
+#       # Fails: complains that __new__() is missing 3 required args
+#       # name, bases, namespace:
+#       class Loo(MetaOption, metaclass=Singleton):
+#           """ Test a MetaOption singleton. """
+#           pass
+
+#       moo1 = Loo()        # TypeError: type takes 1 or 3 arguments
+#       moo2 = Loo()
+
+#       # addresses are the same, so this is a true singleton too
+#       self.assertTrue(moo1 is moo2)
 
     def test_optionz_as_singleton(self):
         """ Test an Optionz object as a singleton. """
@@ -55,7 +81,7 @@ class TestMetaClasses(unittest.TestCase):
             """ Test a MetaOption singleton. """
             pass
 
-        moo1 = Moo()
+        moo1 = Moo()        # TypeError: type takes 1 or 3 arguments
         moo2 = Moo()
 
         # addresses are the same, so this is a true singleton too
@@ -64,13 +90,15 @@ class TestMetaClasses(unittest.TestCase):
     def test_singleton_with_keywords(self):
         """ Test an options singleton with attributes passed as parameters."""
 
+        # pylint doesn't see this as being used
+        # pylint: disable=unused-variable
         kwargs = {'a79': 79, 'b__': 92, 'c__': 'george'}
 
         class Koo(Singleton, metaclass=MetaOption, **kwargs):
             """ To be set up as a singleton with keywords. """
             pass
 
-        koo1 = Koo()
+        koo1 = Koo()        # TypeError: type() takes 1 or 3 arguments
         koo2 = Koo()
 
         # addresses are the same, so this is a true singleton too
@@ -109,7 +137,7 @@ class TestMetaClasses(unittest.TestCase):
 
         koo = optionz_maker(**kwargs)
 
-        koo1 = koo()
+        koo1 = koo()        # TypeError: type() takes 1 or 3 arguments
         koo2 = koo()
 
         # addresses are the same, so this is a true singleton too
