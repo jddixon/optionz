@@ -7,6 +7,8 @@ import enum
 # optionz/optionz/__init__.py
 
 __all__ = ['__version__', '__version_date__',
+           # new functions
+           'show_options',
            # functions
            'optionz_maker',
            # classes
@@ -14,11 +16,75 @@ __all__ = ['__version__', '__version_date__',
            # PROVISIONAL:
            'Optionz', 'ValType',
            'ZOption', 'BoolOption', 'ChoiceOption', 'FloatOption',
-           'IntOption', 'ListOption', 'StrOption',
-           ]
+           'IntOption', 'ListOption', 'StrOption', ]
 
-__version__ = '0.2.1'
-__version_date__ = '2016-12-03'
+__version__ = '0.2.2'
+__version_date__ = '2016-12-05'
+
+
+def show_options(ns_):
+    """ Serialize Namespace for output as sorted, formatted list. """
+
+    if ns_ is None:
+        return ""
+
+    items = sorted(ns_.__dict__.items())        # a list of pairs
+    if len(items) == 0:
+        return ""
+
+    # We expect only pairs whose LHS is a string and whose RHIS is either
+    # a scalar (int, float, str) or a list.  Those with list values are
+    # handled separately.
+
+    scalar_pairs = []
+    list_pairs = []
+    width_lhs = 0
+    output = []
+
+    for pair in items:
+        lhs = pair[0]
+        rhs = pair[1]
+        if isinstance(rhs, list):
+            list_pairs.append(pair)
+        else:
+            if len(lhs) > width_lhs:
+                width_lhs = len(lhs)
+            scalar_pairs.append(pair)
+
+    if scalar_pairs:
+        for pair in scalar_pairs:
+            lhs = pair[0]
+            rhs = pair[1]
+            if isinstance(rhs, str) or isinstance(rhs, bool):
+                fmt = "%%-%ds %%s" % width_lhs
+            elif isinstance(rhs, int):
+                fmt = "%%-%ds %%d" % width_lhs
+            elif isinstance(rhs, float):
+                fmt = "%%-%ds %%f" % width_lhs
+            else:
+                fmt = "%%-%ds %%s" % width_lhs
+            text = fmt % (lhs, rhs)
+            output.append(text)
+
+    if list_pairs:
+        for pair in list_pairs:
+            lhs = pair[0]
+            rhs = pair[1]
+            output.append(('\n' + lhs + 'S:').upper())
+            for value in rhs:
+                if isinstance(value, str) or isinstance(value, bool):
+                    text = "    %s" % value
+                elif isinstance(value, int):
+                    text = "    %d" % value
+                elif isinstance(value, float):
+                    text = "    %f" % value
+                else:
+                    text = "    %s" % value
+                output.append(text)
+
+    return '\n'.join(output) + '\n'
+
+# EXPERIMENTAL ======================================================
 
 
 class OptionzError(RuntimeError):
