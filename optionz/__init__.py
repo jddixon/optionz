@@ -18,19 +18,37 @@ __all__ = ['__version__', '__version_date__',
            'ZOption', 'BoolOption', 'ChoiceOption', 'FloatOption',
            'IntOption', 'ListOption', 'StrOption', ]
 
-__version__ = '0.2.2'
-__version_date__ = '2016-12-05'
+__version__ = '0.2.3'
+__version_date__ = '2016-12-06'
+
+JUST_HEADERS = 'OPTION VALUE\n'
 
 
-def show_options(ns_):
-    """ Serialize Namespace for output as sorted, formatted list. """
+def show_options(ns_, with_headers=True):
+    """
+    Serialize Namespace for output as sorted, formatted list.
+
+    This is an aid for use with argparse's ArgumentParser, which
+    outputs Namespaces.  It prints a table of options and their values,
+    breaking out any list values to be tabulated separately.
+
+    If with_headers, precede the table of options with an
+      OPTION VALUE
+    line.
+    """
 
     if ns_ is None:
-        return ""
+        if with_headers:
+            return JUST_HEADERS
+        else:
+            return ""
 
     items = sorted(ns_.__dict__.items())        # a list of pairs
     if len(items) == 0:
-        return ""
+        if with_headers:
+            return JUST_HEADERS
+        else:
+            return ""
 
     # We expect only pairs whose LHS is a string and whose RHIS is either
     # a scalar (int, float, str) or a list.  Those with list values are
@@ -39,7 +57,12 @@ def show_options(ns_):
     scalar_pairs = []
     list_pairs = []
     width_lhs = 0
-    output = []
+    if with_headers:
+        width_lhs = 6           # for the word 'OPTION'
+        output = ['OPTION VALUE']
+    else:
+        width_lhs = 0
+        output = []
 
     for pair in items:
         lhs = pair[0]
@@ -156,7 +179,7 @@ class MetaOption(type):
         # DEBUG
         print("__INIT__")
         # END
-        return super().__init__(name, bases, namespace)
+        super().__init__(name, bases, namespace)
 
     def __call__(cls, *args, **kwargs):
         """ Instantiates instances of the class. """
