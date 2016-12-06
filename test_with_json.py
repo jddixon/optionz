@@ -43,9 +43,10 @@ class TestWithJson(unittest.TestCase):
     def test_choice_options(self):
         """ Test choices option where must use value from list. """
         try:
+            # pylint: disable=no-value-for-parameter
             o1_ = ChoiceOption('eeenie')
             self.fail("Didn't catch missing choices")
-        except:
+        except TypeError:
             pass
 
         o1_ = ChoiceOption('eeenie', ['a', 'b', 'c', ])

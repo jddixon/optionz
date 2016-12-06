@@ -1,5 +1,9 @@
 # ~/dev/optionz/TODO
 
+2016-12-05
+    * modify show_options() to add an
+            OPTION    VALUE
+        line and then set minimum value of width_lhs to 6
 2016-10-03
     * singletons have stopped working (test_meta_classes.py)
 
