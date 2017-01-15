@@ -58,10 +58,10 @@ class TestAddingFunctions(unittest.TestCase):
         """
 
         obj = SimpleClass()
-        x_val = self.rng.nextInt16()
-        y_val = self.rng.nextInt16()
-        q_val = self.rng.nextInt16()
-        r_val = self.rng.nextInt16()
+        x_val = self.rng.next_int16()
+        y_val = self.rng.next_int16()
+        q_val = self.rng.next_int16()
+        r_val = self.rng.next_int16()
 
         # Test adding a function to an instance; this syntax is
         # specific to Python3.

@@ -1,5 +1,12 @@
 # ~/dev/optionz/TODO
 
+2016-12-06
+    * rename show_options() to dump_options()                           * DONE
+    * add a test where option name lengths > 6                          * DONE
+    * fix so that these align correctly                                 * DONE
+    * consider pretty-printing list values in neatly aligned columns
+        instead of one value per line, as is done currently
+
 2016-12-05
     * modify show_options() to add an
             OPTION    VALUE

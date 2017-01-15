@@ -8,7 +8,7 @@ import enum
 
 __all__ = ['__version__', '__version_date__',
            # new functions
-           'show_options',
+           'dump_options',
            # functions
            'optionz_maker',
            # classes
@@ -18,13 +18,13 @@ __all__ = ['__version__', '__version_date__',
            'ZOption', 'BoolOption', 'ChoiceOption', 'FloatOption',
            'IntOption', 'ListOption', 'StrOption', ]
 
-__version__ = '0.2.3'
-__version_date__ = '2016-12-06'
+__version__ = '0.2.4'
+__version_date__ = '2017-01-14'
 
 JUST_HEADERS = 'OPTION VALUE\n'
 
 
-def show_options(ns_, with_headers=True):
+def dump_options(ns_, with_headers=True):
     """
     Serialize Namespace for output as sorted, formatted list.
 
@@ -59,10 +59,8 @@ def show_options(ns_, with_headers=True):
     width_lhs = 0
     if with_headers:
         width_lhs = 6           # for the word 'OPTION'
-        output = ['OPTION VALUE']
     else:
         width_lhs = 0
-        output = []
 
     for pair in items:
         lhs = pair[0]
@@ -73,6 +71,12 @@ def show_options(ns_, with_headers=True):
             if len(lhs) > width_lhs:
                 width_lhs = len(lhs)
             scalar_pairs.append(pair)
+
+    if with_headers:
+        fmt = "%%-%ds %%s" % width_lhs
+        output = [fmt % ('OPTION', 'VALUE')]
+    else:
+        output = []
 
     if scalar_pairs:
         for pair in scalar_pairs:
@@ -344,13 +348,16 @@ class ZOption(object):
         self._desc = desc       # brief, used in usage()
 
     @property
-    def name(self): return self._name
+    def name(self):
+        return self._name
 
     @property
-    def default(self): return self._default
+    def default(self):
+        return self._default
 
     @property
-    def desc(self): return self._desc
+    def desc(self):
+        return self._desc
 
 
 class BoolOption(ZOption):
