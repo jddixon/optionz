@@ -43,9 +43,9 @@ class TestOptionz(unittest.TestCase):
     def test_z_option(self):
         """ Populate an Optionz object, check for expected attr. """
 
-        z_name = self.rng.nextFileName(8)
-        z_desc = self.rng.nextFileName(64)
-        z_epilog = self.rng.nextFileName(64)
+        z_name = self.rng.next_file_name(8)
+        z_desc = self.rng.next_file_name(64)
+        z_epilog = self.rng.next_file_name(64)
 
         my_optz = Z(z_name, z_desc, z_epilog)
 
@@ -75,16 +75,16 @@ class TestOptionz(unittest.TestCase):
         # are all strings.
 
         # succeeds if default in list of choices ----------
-        my_size = 2 + self.rng.nextInt16(4)     # so in [2..5]
-        choice = self.rng.nextFileName(8)
+        my_size = 2 + self.rng.next_int16(4)     # so in [2..5]
+        choice = self.rng.next_file_name(8)
         choices = [choice]
 
         while len(choices) < my_size:
             if not choice in choices:
                 choices.append(choice)
-            choice = self.rng.nextFileName(8)
+            choice = self.rng.next_file_name(8)
 
-        c_dflt_val = choices[self.rng.nextInt16(my_size)]
+        c_dflt_val = choices[self.rng.next_int16(my_size)]
         c_desc = 'a list'
         choice_opt = ChoiceOption('cO', choices, c_dflt_val, c_desc)
         self.assertEqual(choice_opt.name, 'cO')
@@ -93,18 +93,18 @@ class TestOptionz(unittest.TestCase):
         self.assertEqual(choice_opt.desc, "a list")
 
         # fails if default is NOT in list of choices ------
-        my_size = 2 + self.rng.nextInt16(4)     # so in [2..5]
-        choice = self.rng.nextFileName(8)
+        my_size = 2 + self.rng.next_int16(4)     # so in [2..5]
+        choice = self.rng.next_file_name(8)
         b_choices = [choice]
 
         while len(b_choices) < my_size:
             if not choice in b_choices:
                 b_choices.append(choice)
-            choice = self.rng.nextFileName(8)
+            choice = self.rng.next_file_name(8)
 
-        dflt_val = self.rng.nextFileName(8)
+        dflt_val = self.rng.next_file_name(8)
         while dflt_val in choices:
-            dflt_val = self.rng.nextFileName(8)
+            dflt_val = self.rng.next_file_name(8)
 
         try:
             bad_choice_opt = ChoiceOption('bC', choices,
@@ -119,7 +119,7 @@ class TestOptionz(unittest.TestCase):
 
         # floats ----------------------------------------------------
 
-        f_dflt_val = self.rng.nextReal()
+        f_dflt_val = self.rng.next_real()
         f_desc = 'bubbly'
         float_opt = FloatOption('fO', default=f_dflt_val, desc=f_desc)
         self.assertEqual(float_opt.name, 'fO')
@@ -133,7 +133,7 @@ class TestOptionz(unittest.TestCase):
 
         # ints ------------------------------------------------------
 
-        i_dflt_val = self.rng.nextInt32()
+        i_dflt_val = self.rng.next_int32()
         i_desc = 'discrete'
         int_opt = IntOption('iO', default=i_dflt_val, desc=i_desc)
         self.assertEqual(int_opt.name, 'iO')
@@ -147,9 +147,9 @@ class TestOptionz(unittest.TestCase):
 
         # lists -----------------------------------------------------
 
-        size_val = self.rng.nextInt16()
+        size_val = self.rng.next_int16()
         # select polarity of size randomly
-        if self.rng.nextBoolean():
+        if self.rng.next_boolean():
             size_val = - size_val
         l_desc = "chunky"
 
@@ -172,7 +172,7 @@ class TestOptionz(unittest.TestCase):
 
         # strings ---------------------------------------------------
 
-        s_dflt_val = self.rng.nextFileName(12)
+        s_dflt_val = self.rng.next_file_name(12)
         s_desc = "wiggly"
 
         str_opt = StrOption('sO', default=s_dflt_val, desc=s_desc)

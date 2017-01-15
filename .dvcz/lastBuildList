@@ -1,31 +1,31 @@
 -----BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoM2sBgX0ChP2JriXkOxS
-e2FjHYVzBGkNvgf0vIAa7FFYZi2pWmxBAVXgl3tTiB3quqqud/MbKqdejM6gkKBK
-v8f7hlcBQLD6BLIZ/RRfhIElc+WlDVfKSnBTB4va5qTQAgvuq5i8+oMj7G8WEy5d
-7cYucWyUJMtHvT4pCDtBWeeqQ62tByWjv34Ud/+A9Mjf0leiWxM3tiToVsqIKb4s
-zPjEShF9rvcNa9XEy1dKpcDz9Szbm2SlxOgM83fDDGtOq4SSCSqndtxrOvXXPB57
-H1mJV/FmerbXRPm5ERJVNIxtLk7Gr2Ce45FVlWyJGMhpfVlKkkk+bRQ02OFfazJI
-GQIDAQAB
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl9xsFHvzEsi3G8q8dUOM
+3v4WLJefw8Kv0hHBGFPFQF1WRPldwPGNdVKql8zcO52KO4hzFNHNSBCGgH8cbtAk
+mLWB78ackABFJzhY9TEbPkLnoMXJHAXQpZK/JAudSixuAZIXYtIyBWfgLaHjurAT
+6+DBgC1oQXNrfT4Fvpe1QbHMejjGb41v/r/8ck/dWDr1YzcRFIbiJPj+sQq+X0Uy
+Giaje1YAJPNVBt3dlOA5lhBp4GpSYBskJ9UR2Zyt3lgAGK3dEwxYETLMh9VWEV8i
+k2lyCIE/V/CDb9eVDYQgYSJYrnQ/JAPST7NbcY8aI+/0l7QVBhLBpmOCvmS6ofvz
+/QIDAQAB
 -----END PUBLIC KEY-----
-optionz v0.2.3
-2016-12-06 23:45:50
+optionz v0.2.4
+2017-01-15 01:37:20
 # BEGIN CONTENT #
 optionz
  .coveragerc a9aacaff99a70128f33b05d09426590c5585d0b8
  .dvcz
-  builds 06ea5d2a6aaf28824388378b21a0e8b616a644ef
+  builds 7ee7d1b22dd77058f85f9db2c3e0b20b2483f8cc
   copyright 6794cf665112656267cf59917bdfc150e4c4b97c
-  lastBuildList 52bafc9aee64263662566e0468aea03344a42d78
+  lastBuildList f9914d2218cbc94aedd2bf5d41a9e845fb0c4280
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
-  projCfg 890c13cc561fde2061e7fc40e106d2b807a1c4ac
+  projCfg 9b5f02f3de003c4f9a8922477599a739f89c3c57
   projCfg.local 76e21330aed555d9976769c2efdb5caef955be3c
-  version f3bb57fb878df1d88bd1bbafa903482b0ddc2bf2
- .gitignore 2bc4bcb7826ea9b5fb999444fe18f6785df1de72
- CHANGES efd8223adedffbe0c6222862164afde776e4d219
+  version 92574909994fcfaebf669f3bde196bfd291ec4cb
+ .gitignore b2cc5fa149056ba0a01449dcdb19409728483a5c
+ CHANGES 62f3ce66517ba2fe088ac8c52500c83257e1fee8
  LICENSE-MIT.md e82e359e6de3e83b487ab0eda0679762159a3d9d
  MANIFEST.in 3f6739adc81a934f6ac026a34e1d7e8d570ed61d
  README.md 7cfb538f87104d8e6688d880197ac1a56c41f073
- TODO ff8ce52c75b8cdf6377f72828a2b96104496a800
+ TODO 994018aa79144f07cd274908d3d77ecf989086ae
  bkp2U 1aa1081ee0baf35c4a616d33ccc85f50aa16ca09
  checkCoverage 026f860b032d17613ed2835b2d5da38e42b68d52
  countem 238e8922ccdfd35f47b82a5c602e999a07d771a1
@@ -52,6 +52,7 @@ optionz
   optionz-0.2.1.tar.gz c998de9dbf03b5d7ee398c3753ddbfc909e8f22a
   optionz-0.2.2.tar.gz dfc1c6a2dd2e72783e7b0ef4c562703bc30cef97
   optionz-0.2.3.tar.gz 514667036bc0924cfbdd2b9465580a0fcbc9b2c6
+  optionz-0.2.4.tar.gz 1e88271520ec00ea4978ae7387c23a31862d6705
   optionz_py-0.0.2.tar.gz 17e4480e4a85cad8e92c93888e5b784e0d1702d7
  doPyLint b3420fd9521deda1e0976693baf2d10e19075647
  ghpDoc
@@ -71,20 +72,20 @@ optionz
   index.md faf2643bb5f24bf04d6692b6b74190267ce747e1
  installit 770b458f2e9c4e88de6221b8b062620abe5337f1
  optionz
-  __init__.py 6bc96b875de703b8badc8501ab02c9bc02df1226
+  __init__.py 4af8bcf34edc216e638c0fc32dbe093a26860883
  pylintrc dd234fda24a547a9071f1e4608a3c1f3b7de9aa0
  setup.py 6dc5b494008362a2011299f3a268a4cbcd44a16f
  styleit ccfa981aa8a805d81a9f04977596f45076875008
- test.all 1f762d2b9c42298ab8a2432d7b1dfcf4f8d1100e
- test_adding_functions.py 59cf8f8900ee229d97d728a7ebe6f0c1d8ee3f2a
+ test.all 372a05351d4ec6b388b846b7d30b410941f6f9ee
+ test_adding_functions.py 0af2a4d11f15e3f2da6b7f964455f0855b450fb9
  test_base_options.py 0bb4550c88a8407dcac14ec52690df9a9f194858
  test_class_maker.py 9e116f18650634f2bc1aedc794cd2a59d9b0c110
  test_const.py fff8adb8385dc86e19d35910ee43848383205731
+ test_dump_options.py 01c2829e941c6e03ab821b7942bb54ed8820e104
  test_meta_classes.py e0394eacdb0d8fc35e18d78b1d101f845d3c9b83
  test_named_tuples.py 2111fe3ee265b132cb052d844bcaab9a80ee7e4b
- test_optionz.py bc280ca6f0b299b96920be461cdeac2aa77a1952
- test_show_options.py 39c9a3ca23833b27532e4534b5847f9eefb2a35c
+ test_optionz.py a7bbebd39d32d81544151cf1e443cc8a86823e57
  test_with_json.py f3bc7df8d42c65d00a6a1e873aa67011f2d2a2f3
 # END CONTENT #
 
-eZyIQTVxGkDdngNMYbSYra6ZJVU1rTkESVfzIdHCGQeLzAsVi6IY/LWHY5IZH0NXoV2ARvFYyV0JOkMC2oPvl8fVWmUJNhwSV8bqZoX5af2RYlmUBntOZz2cjPC79fLVo1uF5rc2N2ZYKcNpO/uA90z6XmPuZwEuwyKcK0z27E6aKx8tukU0vAC5swE+jw+bAC5WKKlt9cKOiHc9gK65tQ07nxm2CV5G98DOTzavm66AnLIVbNYaqxr4K+GYCPpW+sioE32/mH0QTn18/cKKjBPYxm3eIv4PpNri5j3yrxWuAfww+j3RbbHs86czucMDtdBvfETj0BQhaKh7w7MaVg==
+lERWo3daFEKToSjj6s7DMVv1FHWXGBF/VHjO2cmud9PpWbN46MZ1DknhCgv2gBi9nemXuoCtWHNmP5zZbLDjkZM0ldtdJ6KjGoShHCDGF/WJxE1lhnpgNtXjIiSzYGMV6et1xK0SJ/cXiKeS/dQ7P9/9nFQwH+nkUezNZPVFo6u9tdLT4cP1Ats+WaR1RlRVZddXTPNzTUtFzpglXC4PzEB/qqOLWKQon0vqjYsRh+RrIqEsgxX92P9I7Ev+oknT3OeWuRbm1RH3ynDipU/R/ntNqWpe1CGLn2FFexhHckwDcwcd6wx26dI+f+IOpsJDT9L2Bph0uRnOxLGUvhW1IQ==

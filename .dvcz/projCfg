@@ -2,8 +2,8 @@
 project:optionz
 package:optionz
 mainlang:py
-version:0.1.16
-versionDate:2016-09-15
+version:0.2.4
+versionDate:2016-12-06
 :?dirs?:
 dir:std:ghpDoc
 dir:std:dist
@@ -42,6 +42,7 @@ py:test:test_adding_functions.py
 py:test:test_base_options.py
 py:test:test_class_maker.py
 py:test:test_const.py
+py:test:test_dump_options.py
 py:test:test_meta_classes.py
 py:test:test_named_tuples.py
 py:test:test_optionz.py

@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 # testBaseOption.py
 
-"""  Test the show_options_ method. """
+"""  Test the dump_options_ method. """
 
 import unittest
 
 from argparse import Namespace
-from optionz import show_options
+from optionz import dump_options
 
 JUST_HEADERS = 'OPTION VALUE\n'
 
 # pylint: disable=too-few-public-methods
 
 
-class TestShowOptions(unittest.TestCase):
-    """  Test the show_options_ method. """
+class TestDumpOptions(unittest.TestCase):
+    """  Test the dump_options_ method. """
 
     def setUp(self):
         pass
@@ -26,14 +26,14 @@ class TestShowOptions(unittest.TestCase):
         """ Test behavior of empty set of options. """
 
         ns_ = None
-        self.assertEqual(show_options(None, with_headers=False), '')
-        self.assertEqual(show_options(None, with_headers=True), JUST_HEADERS)
-        self.assertEqual(show_options(None), JUST_HEADERS)
+        self.assertEqual(dump_options(None, with_headers=False), '')
+        self.assertEqual(dump_options(None, with_headers=True), JUST_HEADERS)
+        self.assertEqual(dump_options(None), JUST_HEADERS)
 
         ns_ = Namespace()
-        self.assertEqual(show_options(None, with_headers=False), '')
-        self.assertEqual(show_options(None, with_headers=True), JUST_HEADERS)
-        self.assertEqual(show_options(None), JUST_HEADERS)
+        self.assertEqual(dump_options(None, with_headers=False), '')
+        self.assertEqual(dump_options(None, with_headers=True), JUST_HEADERS)
+        self.assertEqual(dump_options(None), JUST_HEADERS)
 
     def test_simple_options(self):
         """ Test behavior where all option values are scalars. """
@@ -47,7 +47,7 @@ x xray
 z zulu
 """
         ns_ = Namespace(**kwargs)
-        self.assertEqual(show_options(ns_, with_headers=False), expected)
+        self.assertEqual(dump_options(ns_, with_headers=False), expected)
 
         # all strings, varying-length string keys -------------------
 
@@ -58,7 +58,7 @@ xyz  xray
 z    zulu
 """
         ns_ = Namespace(**kwargs)
-        self.assertEqual(show_options(ns_, with_headers=False), expected)
+        self.assertEqual(dump_options(ns_, with_headers=False), expected)
 
         # varying-length string keys, various types of values -------
 
@@ -69,7 +69,22 @@ xyz  97
 z    False
 """
         ns_ = Namespace(**kwargs)
-        self.assertEqual(show_options(ns_, with_headers=False), expected)
+        self.assertEqual(dump_options(ns_, with_headers=False), expected)
+
+    def test_wider_option_names(self):
+        """ Test behavior with wider options names. """
+
+        # all strings, varying-length string keys -------------------
+
+        kwargs = {'z': 'zulu', 'xyz': 'xray', 'ab12345': 'alpha',
+                  'fghi': 'foxtrot'}
+        expected = """ab12345 alpha
+fghi    foxtrot
+xyz     xray
+z       zulu
+"""
+        ns_ = Namespace(**kwargs)
+        self.assertEqual(dump_options(ns_, with_headers=False), expected)
 
     def test_with_list_options(self):
         """ Test behavior where some option values are lists. """
@@ -89,7 +104,7 @@ BAZS:
     True
 """
         ns_ = Namespace(**kwargs)
-        self.assertEqual(show_options(ns_, with_headers=False), expected4)
+        self.assertEqual(dump_options(ns_, with_headers=False), expected4)
 
         # same setup, but with headers ------------------------------
         # notice that pluralizing 'baz' to 'bazs' makes no sense
@@ -105,7 +120,7 @@ BAZS:
     995
     True
 """
-        self.assertEqual(show_options(ns_, with_headers=True),
+        self.assertEqual(dump_options(ns_, with_headers=True),
                          JUST_HEADERS + expected6)
 
 

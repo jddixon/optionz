@@ -1,6 +1,11 @@
 # ~/dev/py/optionzy/CHANGES
 
 
+v0.2.4
+    2017-01-14
+        * drop redundant tests                                      SLOC 1767
+    2016-12-06
+        * rename show_options() dump_options()
 v0.2.3
     2016-12-06
         * add with_header to show_options; minor bugfixes           SLOC 1894
@@ -70,6 +75,7 @@ v0.0.2
 v0.0.1
     2016-03-13
         * initial build                                             SLOC   22
+
 
 
 
