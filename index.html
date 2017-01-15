@@ -9,15 +9,13 @@
 </head>
 <body>
 <div class="content">
-<h1>
-<a id="user-content-optionz" class="anchor" href="#optionz" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>optionz</h1>
+<h1 class="libTop">optionz</h1>
 
 <p><strong>Optionz</strong> is a package for converting a series of command line arguments
 into  an immutable Python data structure.  That is, it plays the same role
-as C's <strong>getopt</strong> or the Python <strong>argparse</strong>.</p>
+as C&#39;s <strong>getopt</strong> or the Python <strong>argparse</strong>.</p>
 
-<h2>
-<a id="user-content-command-line" class="anchor" href="#command-line" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Command Line</h2>
+<h2>Command Line</h2>
 
 <p>As the term is used here, the command line is an array of strings,
 <strong>arguments</strong>, as we see in <code>sys.argv</code>.  This sequence is made available to
@@ -28,7 +26,7 @@ line into words, with any sequence of one or more delimiters used to separate
 the words, except that singly- and double-quoted strings are untouched.
 So the command</p>
 
-<pre><code>abc   def  "ghi   jkl " mno
+<pre><code>abc   def  &quot;ghi   jkl &quot; mno
 </code></pre>
 
 <p>becomes the string array</p>
@@ -39,8 +37,7 @@ ghi   jkl
 mno
 </code></pre>
 
-<h2>
-<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Options</h2>
+<h2>Options</h2>
 
 <p>A command line <strong>option</strong> consists of a <em>**tag</em>* (usually the option name)
 preceded by one or two
@@ -58,8 +55,7 @@ otions are not followed by a value and so would probably be booleans.  The
 third, <code>-b</code>, has a value, <code>52</code>, which would probably be interpreted as
 an integer.</p>
 
-<h3>
-<a id="user-content-option-names" class="anchor" href="#option-names" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option Names</h3>
+<h3>Option Names</h3>
 
 <p>A valid option or tag name is a sequence of printing characters, none of
 which is
@@ -81,28 +77,24 @@ opposite need not be true.  So all of these are valid option names:</p>
 abc.def   # contains a dot
 </code></pre>
 
-<h3>
-<a id="user-content-short-form-options" class="anchor" href="#short-form-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Short-form Options</h3>
+<h3>Short-form Options</h3>
 
 <p>On the command line, a short-form operation is generally
 represented as single characters <strong>tag</strong> preceded by a
 dash.  The single character may be the name of the option.
-So '-f' is the short-form representation of the option <code>f</code> on the
+So &#39;-f&#39; is the short-form representation of the option <code>f</code> on the
 command line.  Generally a longer option name is associated with
 the single character tag represenging it on the command line.</p>
 
-<h3>
-<a id="user-content-long-form-options" class="anchor" href="#long-form-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Long-form Options</h3>
+<h3>Long-form Options</h3>
 
 <p>Long-form options are represented on the command line as a tag,
 a string of non-delimiting characters, preceded by a double dash (<code>--</code>).
 The tag is generally the same as the option name.</p>
 
-<h2>
-<a id="user-content-requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
+<h2>Requirements</h2>
 
-<h3>
-<a id="user-content-tags-and-option-names" class="anchor" href="#tags-and-option-names" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tags and Option Names</h3>
+<h3>Tags and Option Names</h3>
 
 <p><strong>optionz</strong> must support both long and short option forms.  The tag
 in the short form must be a single character.  The tag is the long
@@ -116,8 +108,7 @@ and this is the more common case, any option may be associated with
 both a single-character tag and a multi-character tag, and the
 multi-character tag is normally identical to the option name.</p>
 
-<h2>
-<a id="user-content-values" class="anchor" href="#values" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Values</h2>
+<h2>Values</h2>
 
 <p>Each option is associated with zero, one, or more values.  These are
 represented as strings, but the <code>optionz</code> declaration will include
@@ -125,8 +116,7 @@ syntax mapping any value or values associated with an option into either a
 basic data type or a collection of such.  That is, <code>optionz</code> will
 automatically cast the string into a Python value of the correct type.</p>
 
-<h3>
-<a id="user-content-basic-data-types" class="anchor" href="#basic-data-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic Data Types</h3>
+<h3>Basic Data Types</h3>
 
 <p>These are</p>
 
@@ -138,23 +128,21 @@ automatically cast the string into a Python value of the correct type.</p>
 <li>choices</li>
 </ul>
 
-<h3>
-<a id="user-content-collections" class="anchor" href="#collections" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Collections</h3>
+<h3>Collections</h3>
 
 <p>A <strong>collection</strong> in the sense in which the term is used here is a sequence
 of values.  In Python terms the <code>optionz</code> deliverable corresponding to a
 collection is a named tuple whose cardinality is symbolized by</p>
 
 <ul>
-<li>'?' zero or one values</li>
-<li>'*' zero or more values</li>
-<li>'+' one or more values</li>
+<li>&#39;?&#39; zero or one values</li>
+<li>&#39;*&#39; zero or more values</li>
+<li>&#39;+&#39; one or more values</li>
 </ul>
 
 <p>All values in a collection are of the same basic type.</p>
 
-<h2>
-<a id="user-content-subcommands" class="anchor" href="#subcommands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Subcommands</h2>
+<h2>Subcommands</h2>
 
 <p><code>optionz</code> must support <strong>subcommands</strong>, where a subcommand is essentially
 a tag followed by a nested set of options.</p>
@@ -166,15 +154,14 @@ followed by a tag and then zero or more values) and then one of
 the subcommands, each of which has the same form: the subcommand
 name followed by zero or options.</p>
 
-<h2>
-<a id="user-content-help-messages" class="anchor" href="#help-messages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Help Messages</h2>
+<h2>Help Messages</h2>
 
 <p>All <code>optionz</code> objects have a built-in <strong>help</strong> option which has a
 <code>-h</code> short form and a <code>--help</code> long form.  These map into a single
 field, which is a boolean.</p>
 
 <h2>
-<a id="user-content-project-status" class="anchor" href="#project-status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Project Status</h2>
+<a id="user-content-command-line" class="anchor" href="#command-line" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Command Line</h2>
 
 <p>Pre-alpha.</p>
 
