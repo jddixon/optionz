@@ -70,5 +70,6 @@ class TestBaseOption(unittest.TestCase):
         opt_b.name = 'george'
         self.assertEqual(opt_b.name, 'george')
 
+
 if __name__ == '__main__':
     unittest.main()

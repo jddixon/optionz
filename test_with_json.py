@@ -161,5 +161,6 @@ class TestWithJson(unittest.TestCase):
 
         # NOTE No json yet
 
+
 if __name__ == '__main__':
     unittest.main()

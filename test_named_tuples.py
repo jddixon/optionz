@@ -71,5 +71,6 @@ class TestNamedTuples(unittest.TestCase):
         except TypeError:
             self.assertEqual(upper[2], 42)
 
+
 if __name__ == '__main__':
     unittest.main()

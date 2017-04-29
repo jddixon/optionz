@@ -172,5 +172,6 @@ class TestMetaClasses(unittest.TestCase):
         # we want this value to be unchanged as well
         self.assertEqual(koo1.a13, 13)
 
+
 if __name__ == '__main__':
     unittest.main()
