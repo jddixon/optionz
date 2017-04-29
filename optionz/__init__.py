@@ -18,8 +18,8 @@ __all__ = ['__version__', '__version_date__',
            'ZOption', 'BoolOption', 'ChoiceOption', 'FloatOption',
            'IntOption', 'ListOption', 'StrOption', ]
 
-__version__ = '0.2.4'
-__version_date__ = '2017-01-14'
+__version__ = '0.2.5'
+__version_date__ = '2017-04-28'
 
 JUST_HEADERS = 'OPTION VALUE\n'
 
@@ -366,9 +366,9 @@ class BoolOption(ZOption):
         super().__init__(name, ValType.BOOL, default, desc)
 
     def __eq__(self, other):
-        return  isinstance(other, BoolOption)       and \
-            self._name == other.name               and \
-            self._default == other.default         and \
+        return isinstance(other, BoolOption) and \
+            self._name == other.name and \
+            self._default == other.default and \
             self._desc == other.desc
 
 
@@ -393,9 +393,9 @@ class ChoiceOption(ZOption):
         return [ch for ch in self._choices]
 
     def __eq__(self, other):
-        return  isinstance(other, ChoiceOption)     and \
-            self._name == other.name       and \
-            self._default == other.default    and \
+        return isinstance(other, ChoiceOption) and \
+            self._name == other.name and \
+            self._default == other.default and \
             self._desc == other.desc
 
 
@@ -405,9 +405,9 @@ class FloatOption(ZOption):
         super().__init__(name, ValType.FLOAT, default, desc)
 
     def __eq__(self, other):
-        return  isinstance(other, FloatOption)      and \
-            self._name == other.name       and \
-            self._default == other.default    and \
+        return isinstance(other, FloatOption) and \
+            self._name == other.name and \
+            self._default == other.default and \
             self._desc == other.desc
 
 
@@ -419,9 +419,9 @@ class IntOption(ZOption):
         super().__init__(name, ValType.INT, default, desc)
 
     def __eq__(self, other):
-        return  isinstance(other, IntOption)      and \
-            self._name == other.name       and \
-            self._default == other.default    and \
+        return isinstance(other, IntOption) and \
+            self._name == other.name and \
+            self._default == other.default and \
             self._desc == other.desc
 
 
@@ -441,9 +441,9 @@ class ListOption(ZOption):
     def size(self): return self._default
 
     def __eq__(self, other):
-        return  isinstance(other, ListOption)       and \
-            self._name == other.name       and \
-            self._default == other.default    and \
+        return isinstance(other, ListOption) and \
+            self._name == other.name and \
+            self._default == other.default and \
             self._desc == other.desc
 
 
@@ -453,7 +453,7 @@ class StrOption(ZOption):
         super().__init__(name, ValType.STR, default, desc)
 
     def __eq__(self, other):
-        return  isinstance(other, StrOption)      and \
-            self._name == other.name       and \
-            self._default == other.default    and \
+        return isinstance(other, StrOption) and \
+            self._name == other.name and \
+            self._default == other.default and \
             self._desc == other.desc

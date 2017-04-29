@@ -110,7 +110,7 @@ class TestOptionz(unittest.TestCase):
             bad_choice_opt = ChoiceOption('bC', choices,
                                           default=dflt_val, desc="a list")
             self.fail('successfully added default value not in list of choices')
-        except:
+        except BaseException:
             pass
 
         c_check = my_optz.add_choice_option('cO', choices, c_dflt_val, c_desc)

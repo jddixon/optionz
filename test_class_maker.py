@@ -118,5 +118,6 @@ class TestClassMaker(unittest.TestCase):
         self.assertEqual(foo1.c98(), 98)
         self.assertEqual(foo1.d199(), 199)
 
+
 if __name__ == '__main__':
     unittest.main()
