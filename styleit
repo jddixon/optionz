@@ -4,7 +4,7 @@ if [ ! -z "${DEV_BASE// }" ]
 then
   cd $DEV_BASE/py/optionz
   
-  autopep8 -ai -r optionz *.py
+  autopep8 -ai -r src tests
   
 else
   echo "DEV_BASE is not defined"

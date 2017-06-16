@@ -1,1 +1,1 @@
-pylint setup.py test*.py optionz
+pylint setup.py tests/test*.py src/optionz
