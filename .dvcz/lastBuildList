@@ -7,8 +7,8 @@ Giaje1YAJPNVBt3dlOA5lhBp4GpSYBskJ9UR2Zyt3lgAGK3dEwxYETLMh9VWEV8i
 k2lyCIE/V/CDb9eVDYQgYSJYrnQ/JAPST7NbcY8aI+/0l7QVBhLBpmOCvmS6ofvz
 /QIDAQAB
 -----END PUBLIC KEY-----
-optionz v0.2.6
-2017-06-16 17:33:40
+optionz v0.2.7
+2017-07-21 18:50:57
 # BEGIN CONTENT #
 optionz
  .cache
@@ -17,24 +17,24 @@ optionz
     lastfailed bb20f962f94915fb2215381f916b2f4ba4ac106f
  .coveragerc a9aacaff99a70128f33b05d09426590c5585d0b8
  .dvcz
-  builds d762a0179292866508c81984707a9df87b0141dc
+  builds 0f266846932fef482bcf8ea15109410f83bf4e28
   copyright 9ba73bf798bce641eb5082b855c6788fe7ea5833
-  lastBuildList e9065ecf3efbba9f7e35890576a20143fc7822e0
+  lastBuildList 3679a685c52732e5c786ae1c6ccc4a52ccae737e
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
-  projCfg 9b5f02f3de003c4f9a8922477599a739f89c3c57
+  projCfg e465c49e1375a57c762056887e13cf72fe4f79d4
   projCfg.local 76e21330aed555d9976769c2efdb5caef955be3c
-  version 13788efaaa9db8c92e8c1d9c986d40f1331fb681
+  version c6e45876aab6420a9fe4e1d0c2500de3345e509d
  .gitignore 5185a3cb0539828e50edfc25d60c80ae291197fa
- CHANGES d4738609a6bb8dedc3b24ad0a216882313a9a95b
- LICENSE-MIT.md e82e359e6de3e83b487ab0eda0679762159a3d9d
- MANIFEST.in 3f6739adc81a934f6ac026a34e1d7e8d570ed61d
+ CHANGES 9a60c5acc4e58b1a2c0865046559cbf7697106d9
+ LICENSE-MIT.md 1aadfd51d28fc4b9e3f5929212794dd121b13e26
+ MANIFEST.in e21823fc3f88da4455792148de0afafb88c08ec5
  README.md 7cfb538f87104d8e6688d880197ac1a56c41f073
  TODO 994018aa79144f07cd274908d3d77ecf989086ae
  bkp2U 1aa1081ee0baf35c4a616d33ccc85f50aa16ca09
- checkCoverage aa73b30d5fd0adc9b113f59d303350f22edbdaa3
- countem b88659a2714000c917ab2c131b1c5a989b8d91b9
+ checkCoverage 5539dff197a75bb1ad2de0c836399a9bb688168a
+ countem 7161ba0f0cabb7fa2a2cbb8e9c54e8ad0b6d9b2e
  coverage.summary f39fa9ea5fe3d24f86b5c6d5622053c99ce6fd4b
- doPyLint 92394181a220e3fb2c08c53858cbed99aadde110
+ doPyLint 31321ad99eb3b9ac0928a68c29a8b5b88c9472fb
  ghpDoc
   css
    LICENSE.html5-boilerplate.md ded771b3245b190da0e81c76de5a80d41392c0a6
@@ -55,9 +55,9 @@ optionz
  setup.py 6c77b48bf86f6ab1a62fc07514676404d5a6dc79
  src
   optionz
-   __init__.py f7f92df8727681fd1e4d26e46e76af5a859da15a
- styleit 0e8da7c166835358651d05a776e3cfce61fb9928
- test.all 17d76d0c5cc13f8231a0dfb4b71ebfadf08fa133
+   __init__.py 0d99c48f12793cae1b2b941fd8a37c3e381df06e
+ styleit 1265227bd993ce7989fbdd2981f8ac9a53f9e861
+ test.all b9a01d196414f9ce7c08fa4c7f9a2244bd12de93
  tests
   test_adding_functions.py 0af2a4d11f15e3f2da6b7f964455f0855b450fb9
   test_base_options.py 8d79a2a9a33c6764786519e6c59a753a8cfc5842
@@ -70,4 +70,4 @@ optionz
   test_with_json.py c7c754bbc0a7cee6fdd8179bbf8fed38157d80ff
 # END CONTENT #
 
-T1prnbCr3zx26ITXoHcNdIyKng3vclHi3C51JegKfc+SMohHEukI7yuVWzKCFksztxK798U9NDBgKy3uPuF9xdI6E1axn3WtACLrJEn5fVBTxdrpz5OLQ/slPt101AixexgRasxePzSvW6fqQ8cmO56R66ax4YNSQEaRjM48HlMWxmSWDnuP6Fw+notjtQEpeOlgnJBr+UOOdz5bggTV4naiPahzoLXBCMEm6vxVgMAUgMGGDxirLV9SxqJY6RWcb2cpvdLmp/7tdm1XqF5c5nX8b9aRN352X+o91iYCw1FR4g7dhryjIVgdK8aU3MbL46zTQFontk9DujGevuQwSg==
+c9Pizm1TdjmX4VvfpmaOHTZdemjvfi0jAvYzN38Xo0eiYkX87MYYXycGdKObxv1HZ9Gp/KK2Rdo6EQEFZlAy70nvunGP2Ox0/+LbgUelmzJ1WcGoDMEU1w55ZCdZ86XQ6F97pfwA4G0LtPETxDr+AmBmSyo5W4NC6TILgdDD7NPFP0Jq/cehVAUrWLOyBhAs2gkMH4+PvDaIeyJpnHLdyjdY5cj1SToBLA5OsWpZVgmTsnPDuE4HNwgsUBDokMl9S/nhGBUUecFyFKxyxMUcY6LljD2kEMu8Og2tN9hNXzMVOC0FcEV3562eZXk8AX6pa0rwzytfhkrtxlXDBf3tfA==
