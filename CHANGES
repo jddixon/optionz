@@ -1,6 +1,12 @@
 # ~/dev/py/optionzy/CHANGES
 
 
+v0.2.7
+    2017-07-21
+        * rewrite setup.py, MAIFEST.in                              SLOC 1872
+v0.2.6
+    2017-06-16
+        * restructure for pytest                                    SLOC 1864
 v0.2.5
     2017-04-28
         * drop dist/* from repos; plus minor edits                  SLOC 1895
@@ -78,6 +84,8 @@ v0.0.2
 v0.0.1
     2016-03-13
         * initial build                                             SLOC   22
+
+
 
 
 

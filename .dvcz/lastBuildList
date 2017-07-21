@@ -7,30 +7,34 @@ Giaje1YAJPNVBt3dlOA5lhBp4GpSYBskJ9UR2Zyt3lgAGK3dEwxYETLMh9VWEV8i
 k2lyCIE/V/CDb9eVDYQgYSJYrnQ/JAPST7NbcY8aI+/0l7QVBhLBpmOCvmS6ofvz
 /QIDAQAB
 -----END PUBLIC KEY-----
-optionz v0.2.5
-2017-04-29 00:37:51
+optionz v0.2.7
+2017-07-21 18:50:57
 # BEGIN CONTENT #
 optionz
+ .cache
+  v
+   cache
+    lastfailed bb20f962f94915fb2215381f916b2f4ba4ac106f
  .coveragerc a9aacaff99a70128f33b05d09426590c5585d0b8
  .dvcz
-  builds ce34350c9a7adcd47c6047c4c93417fe1c4fb7ca
+  builds 0f266846932fef482bcf8ea15109410f83bf4e28
   copyright 9ba73bf798bce641eb5082b855c6788fe7ea5833
-  lastBuildList a71b7e8708bff1dc8241b87d0041034fa8e3b38c
+  lastBuildList 3679a685c52732e5c786ae1c6ccc4a52ccae737e
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
-  projCfg 9b5f02f3de003c4f9a8922477599a739f89c3c57
+  projCfg e465c49e1375a57c762056887e13cf72fe4f79d4
   projCfg.local 76e21330aed555d9976769c2efdb5caef955be3c
-  version 41989b9552035cec3f157ccba602dfc5bac1fa4f
+  version c6e45876aab6420a9fe4e1d0c2500de3345e509d
  .gitignore 5185a3cb0539828e50edfc25d60c80ae291197fa
- CHANGES 5813e01c3ca5febb22cbc3d3c0f06e6e11eb304f
- LICENSE-MIT.md e82e359e6de3e83b487ab0eda0679762159a3d9d
- MANIFEST.in 3f6739adc81a934f6ac026a34e1d7e8d570ed61d
+ CHANGES 9a60c5acc4e58b1a2c0865046559cbf7697106d9
+ LICENSE-MIT.md 1aadfd51d28fc4b9e3f5929212794dd121b13e26
+ MANIFEST.in e21823fc3f88da4455792148de0afafb88c08ec5
  README.md 7cfb538f87104d8e6688d880197ac1a56c41f073
  TODO 994018aa79144f07cd274908d3d77ecf989086ae
  bkp2U 1aa1081ee0baf35c4a616d33ccc85f50aa16ca09
- checkCoverage 026f860b032d17613ed2835b2d5da38e42b68d52
- countem 238e8922ccdfd35f47b82a5c602e999a07d771a1
+ checkCoverage 5539dff197a75bb1ad2de0c836399a9bb688168a
+ countem 7161ba0f0cabb7fa2a2cbb8e9c54e8ad0b6d9b2e
  coverage.summary f39fa9ea5fe3d24f86b5c6d5622053c99ce6fd4b
- doPyLint b3420fd9521deda1e0976693baf2d10e19075647
+ doPyLint 31321ad99eb3b9ac0928a68c29a8b5b88c9472fb
  ghpDoc
   css
    LICENSE.html5-boilerplate.md ded771b3245b190da0e81c76de5a80d41392c0a6
@@ -47,21 +51,23 @@ optionz
    xlattice-2014.jpg f185aaad06db71acd9454f31054c62c56d36f37f
   index.md faf2643bb5f24bf04d6692b6b74190267ce747e1
  installit 770b458f2e9c4e88de6221b8b062620abe5337f1
- optionz
-  __init__.py e0b7d9cf86b333bb9c23c3fbe1b6b5f349b922e8
  pylintrc dd234fda24a547a9071f1e4608a3c1f3b7de9aa0
- setup.py 6dc5b494008362a2011299f3a268a4cbcd44a16f
- styleit ccfa981aa8a805d81a9f04977596f45076875008
- test.all 372a05351d4ec6b388b846b7d30b410941f6f9ee
- test_adding_functions.py 0af2a4d11f15e3f2da6b7f964455f0855b450fb9
- test_base_options.py 8d79a2a9a33c6764786519e6c59a753a8cfc5842
- test_class_maker.py 2998e6c182553c39b056b9efab3507067d6958cf
- test_const.py da59000802450a65b8da57fb0754ed9724997e4c
- test_dump_options.py 01c2829e941c6e03ab821b7942bb54ed8820e104
- test_meta_classes.py 7457d5bb4b544b2fc7bac085c9abb596d9d284ae
- test_named_tuples.py c79f2b638f79422ebc86f2f63e49e45b81439a93
- test_optionz.py 414ba0b05996192baf1a9014ae7cd96cb45d88e6
- test_with_json.py c7c754bbc0a7cee6fdd8179bbf8fed38157d80ff
+ setup.py 6c77b48bf86f6ab1a62fc07514676404d5a6dc79
+ src
+  optionz
+   __init__.py 0d99c48f12793cae1b2b941fd8a37c3e381df06e
+ styleit 1265227bd993ce7989fbdd2981f8ac9a53f9e861
+ test.all b9a01d196414f9ce7c08fa4c7f9a2244bd12de93
+ tests
+  test_adding_functions.py 0af2a4d11f15e3f2da6b7f964455f0855b450fb9
+  test_base_options.py 8d79a2a9a33c6764786519e6c59a753a8cfc5842
+  test_class_maker.py 2998e6c182553c39b056b9efab3507067d6958cf
+  test_const.py da59000802450a65b8da57fb0754ed9724997e4c
+  test_dump_options.py 01c2829e941c6e03ab821b7942bb54ed8820e104
+  test_meta_classes.py 7457d5bb4b544b2fc7bac085c9abb596d9d284ae
+  test_named_tuples.py c79f2b638f79422ebc86f2f63e49e45b81439a93
+  test_optionz.py 414ba0b05996192baf1a9014ae7cd96cb45d88e6
+  test_with_json.py c7c754bbc0a7cee6fdd8179bbf8fed38157d80ff
 # END CONTENT #
 
-QdFdIxPkYsu9PiaryLA2UhyF3CFgtHW3JmrXJdTuZjImdEtPbZ6t2SmYSlS6XtCbVRHovGkWmUZHsfYCrt3T2S71lhVcUD1KKwXvPY5DLB+c0q09rrdHJQS+ppul4qS1gUWH6LkVaY9ESMoAS7MlVmfl8D+b5P8SXouZfgcJQWAjLxCX7ZpxNRnSa6xU68uOL+iBS2DFq8JHXneIKxzKk7CFxhjd2DtMakVwEdepzcyztnGGSKO6jwE+qvwh4Exi1eNWJTaGn750/MKx5jCtpIL6RjqUIdlw5Q+diSgsxfHk7SUgiR1VqyKduaUTBe56OKcwRYRdKZsLUO0xTqm0bQ==
+c9Pizm1TdjmX4VvfpmaOHTZdemjvfi0jAvYzN38Xo0eiYkX87MYYXycGdKObxv1HZ9Gp/KK2Rdo6EQEFZlAy70nvunGP2Ox0/+LbgUelmzJ1WcGoDMEU1w55ZCdZ86XQ6F97pfwA4G0LtPETxDr+AmBmSyo5W4NC6TILgdDD7NPFP0Jq/cehVAUrWLOyBhAs2gkMH4+PvDaIeyJpnHLdyjdY5cj1SToBLA5OsWpZVgmTsnPDuE4HNwgsUBDokMl9S/nhGBUUecFyFKxyxMUcY6LljD2kEMu8Og2tN9hNXzMVOC0FcEV3562eZXk8AX6pa0rwzytfhkrtxlXDBf3tfA==
