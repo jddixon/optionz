@@ -1,30 +1,39 @@
 #!/usr/bin/python3
-# optionz/optionz/setup.py
+# optionz/setup.py
 
-""" Set up the optionz package. """
+""" Setuptools project configuration for optionz. """
 
-import re
-from distutils.core import setup
-__version__ = re.search(r"__version__\s*=\s*'(.*)'",
-                        open('src/optionz/__init__.py').read()).group(1)
+from os.path import exists
+from setuptools import setup
 
-# see http://docs.python.org/distutils/setupscript.html
+long_desc = None
+if exists('README.md'):
+    with open('README.md', 'r') as file:
+        long_desc = file.read()
 
 setup(name='optionz',
-      version=__version__,
+      version='0.2.8',
       author='Jim Dixon',
       author_email='jddixon@gmail.com',
+      long_description=long_desc,
+      packages=['optionz'],
+      package_dir={'': 'src'},
       py_modules=[],
-      # list packages in separate directories
-      packages=['src/optionz', ],
-      # following could be in scripts/ subdir
+      include_package_data=False,
+      zip_safe=False,
       scripts=[],
       description='command line options processor',
       url='https://jddixon.github.io/optionz',
       classifiers=[
-          'License :: OSI Approved :: MIT License',
-          "Development Status :: 2 - Pre-Alpha",
+          'Development Status :: 1 - Planning',
           'Intended Audience :: Developers',
+          'License :: OSI Approved :: MIT License',
           'Natural Language :: English',
-          'Programming Language :: Python 3',
+          'Programming Language :: Python 2.7',
+          'Programming Language :: Python 3.3',
+          'Programming Language :: Python 3.4',
+          'Programming Language :: Python 3.5',
+          'Programming Language :: Python 3.6',
+          'Programming Language :: Python 3.7',
+          'Topic :: Software Development :: Libraries :: Python Modules',
       ],)
