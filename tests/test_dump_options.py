@@ -26,14 +26,14 @@ class TestDumpOptions(unittest.TestCase):
         """ Test behavior of empty set of options. """
 
         ns_ = None
-        self.assertEqual(dump_options(None, with_headers=False), '')
-        self.assertEqual(dump_options(None, with_headers=True), JUST_HEADERS)
-        self.assertEqual(dump_options(None), JUST_HEADERS)
+        self.assertEqual(dump_options(ns_, with_headers=False), '')
+        self.assertEqual(dump_options(ns_, with_headers=True), JUST_HEADERS)
+        self.assertEqual(dump_options(ns_), JUST_HEADERS)
 
         ns_ = Namespace()
-        self.assertEqual(dump_options(None, with_headers=False), '')
-        self.assertEqual(dump_options(None, with_headers=True), JUST_HEADERS)
-        self.assertEqual(dump_options(None), JUST_HEADERS)
+        self.assertEqual(dump_options(ns_, with_headers=False), '')
+        self.assertEqual(dump_options(ns_, with_headers=True), JUST_HEADERS)
+        self.assertEqual(dump_options(ns_), JUST_HEADERS)
 
     def test_simple_options(self):
         """ Test behavior where all option values are scalars. """

@@ -18,8 +18,8 @@ __all__ = ['__version__', '__version_date__',
            'ZOption', 'BoolOption', 'ChoiceOption', 'FloatOption',
            'IntOption', 'ListOption', 'StrOption', ]
 
-__version__ = '0.2.8'
-__version_date__ = '2017-08-18'
+__version__ = '0.2.9'
+__version_date__ = '2017-09-03'
 
 JUST_HEADERS = 'OPTION VALUE\n'
 
@@ -235,8 +235,8 @@ class Option(_BaseOption):
 
         # DEBUG
         # print("eq:")
-        #print("  self:  %s" % self.__dict__)
-        #print("  other: %s" % other.__dict__)
+        # print("  self:  %s" % self.__dict__)
+        # print("  other: %s" % other.__dict__)
         # END
         return self.__dict__ == other.__dict__
 
@@ -383,7 +383,7 @@ class ChoiceOption(ZOption):
         super().__init__(name, ValType.CHOICE, default, desc)
         self._choices = [ch for ch in choices]
 
-        if default and not default in choices:
+        if default and default not in choices:
             raise OptionzError("default value '%s' is not in %s's choices" % (
                 default, name))
 

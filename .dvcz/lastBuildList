@@ -7,29 +7,29 @@ Giaje1YAJPNVBt3dlOA5lhBp4GpSYBskJ9UR2Zyt3lgAGK3dEwxYETLMh9VWEV8i
 k2lyCIE/V/CDb9eVDYQgYSJYrnQ/JAPST7NbcY8aI+/0l7QVBhLBpmOCvmS6ofvz
 /QIDAQAB
 -----END PUBLIC KEY-----
-optionz v0.2.8
-2017-08-18 20:00:08
+optionz v0.2.9
+2017-09-03 20:51:32
 # BEGIN CONTENT #
 optionz
  .cache
   v
    cache
-    lastfailed 7342f78ff37fc3f148c99cb727ddb8b4ec452c57
+    lastfailed bb20f962f94915fb2215381f916b2f4ba4ac106f
  .coveragerc a9aacaff99a70128f33b05d09426590c5585d0b8
  .dvcz
-  builds 9994ca82fc8a8287a8c211dd26d2025d93868291
+  builds 6c1ed0ca84e8d2b45c1c1533a36ffb6493bd1bfc
   copyright 9ba73bf798bce641eb5082b855c6788fe7ea5833
-  lastBuildList 3bd3b08d637ee2f76546fbd75ebe51d072181a92
+  lastBuildList 920a84644829d484eb351d3256b1c353a206d27f
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
-  projCfg bcaebe082383a915ce0edbe895bb39569f43de5b
+  projCfg efb3fd515e3edb1a7c1b0194722d4bcaec18b871
   projCfg.local 76e21330aed555d9976769c2efdb5caef955be3c
-  version 4da37f3583c814b50e418a899a134b4e826458d5
- .gitignore fa249afe19714b701dd828a80bd855e2ce1b05e4
- CHANGES 91a93c3df4e882a101613b85aa03041e3e84b43b
+  version b4544af3ab4abee9def57514441d09700af25627
+ .gitignore c8129c7133b7a7755cefd3dfc62a9af7bc306aa0
+ CHANGES ac5dd58a60cc5a0ecf675d040bf0bb1ae6ab860b
  LICENSE-MIT.md 1aadfd51d28fc4b9e3f5929212794dd121b13e26
- MANIFEST.in 7ecdc5eedf233385e0f99ba4c6e4a42212adb46f
+ MANIFEST.in ee87ecf6928c0c4c69376734eba9cf532ce748b1
  README.md 7cfb538f87104d8e6688d880197ac1a56c41f073
- TODO 994018aa79144f07cd274908d3d77ecf989086ae
+ TODO 9aad6e93931898f3f9653278091e6399ae0c3358
  bkp2U 1aa1081ee0baf35c4a616d33ccc85f50aa16ca09
  checkCoverage 5539dff197a75bb1ad2de0c836399a9bb688168a
  countem be7188570172db8bf8bbe85ca7c820e08aa5733a
@@ -52,24 +52,24 @@ optionz
  installit 770b458f2e9c4e88de6221b8b062620abe5337f1
  pylintrc dd234fda24a547a9071f1e4608a3c1f3b7de9aa0
  requirements.txt 37dd6ee55da48bad5852d5e15c07ceece2a5b36a
- setup.py 8d29086ec5502d27c00016dd72eb6033ff48c2f5
+ setup.py 4762d4440ea315342c0d1052a0732ad0570dff0e
  src
   optionz
-   __init__.py 8216293a6dd58eee80f639f21bdfd8ae96f4a8d3
+   __init__.py b9eea66dacb5fe2de2287474ae2948422f8b9d4c
  styleit 1265227bd993ce7989fbdd2981f8ac9a53f9e861
  test.all b9a01d196414f9ce7c08fa4c7f9a2244bd12de93
  test_requirements.txt 4f706ff86bc04bc4021d1a0ba6497a39cc2e1bea
  tests
   test_adding_functions.py 0af2a4d11f15e3f2da6b7f964455f0855b450fb9
   test_base_options.py 8d79a2a9a33c6764786519e6c59a753a8cfc5842
-  test_class_maker.py 2998e6c182553c39b056b9efab3507067d6958cf
-  test_const.py da59000802450a65b8da57fb0754ed9724997e4c
-  test_dump_options.py 01c2829e941c6e03ab821b7942bb54ed8820e104
-  test_meta_classes.py 7457d5bb4b544b2fc7bac085c9abb596d9d284ae
+  test_class_maker.py 5941dd8a254baa6cd0fa4b2842ed7cca23cf85bf
+  test_const.py 8fbc3254468b045b893333c6e64125fbb2408f79
+  test_dump_options.py d4466fe887f1df41e8229b91e0f813cc3394651d
+  test_meta_classes.py 96336177eb92e85559b921b4c0db5a26710cc023
   test_named_tuples.py c79f2b638f79422ebc86f2f63e49e45b81439a93
-  test_optionz.py 414ba0b05996192baf1a9014ae7cd96cb45d88e6
+  test_optionz.py 1afad1e341bcea078d5122ac7b32f32d20dd2fb0
   test_with_json.py c7c754bbc0a7cee6fdd8179bbf8fed38157d80ff
- tox.ini 54521881a0ca23c99091ef40526c846429ee3ef9
+ tox.ini d500d7d1967b045f41a11bdfa17e47efe8491646
 # END CONTENT #
 
-LEsFdpo0GIcF0AJPSXEYBr1b7zELgwKAWss6sUAysUQCqUvjdCs3C1yWLdo5frJgm9WQ/FdlSIXzwwegQuW69M/6QzzVaBNUk5UPrsnjORBSyBkpEimmMzSP7e2MDMTUDbNSDerioxlLoNmU99bNvNLDrj+iSL3Zp+UkZ30rkTRURQ5g/dN1xdha08yO5BTBV+AtyMjXIgrgI0lrlRhwU1gU7iieMf7bdNvTvhUhiDjhRRYsFoezexDLPmCKRfUOWBr5xxrScTiI0nKpT08kLMUVaEO/3lZ0Dcso0dn+gPLvu2kS9AJEiTrIE3XrZgcYlj9gEWurLtEvhqTlFDD8/A==
+j/qL7x41+yJm/C6r7kY9BdM0fEYO4FpHKB7UHkRpRiEBTclp/j7LB03Cdax94wvUOSyOY6ORwY32r+tVk68zh9XvHSSA7uzuNKVYTZtRY2gLCwwkNQukVhc9cQb7iHk6DyG6Guv/xpxYkS4w06MmCXO73ca6u4lLcKMyHdAhKlnjqp7s/KJxVSV9M/Adlj2Ipa5KIjMAGDFuFetu3JOwlRr6fQAt52Zu4ozwkO/0ZM6vKMLdGefgqXtRF3d753BKARwCGmPFQ+QOW/VF1NYS9o3jQWk1zN0DOAgNqvNqcNmfUZr7da9bhNqw1oqDlkK4MAkYmLVZebOpQAY64tm1ZA==

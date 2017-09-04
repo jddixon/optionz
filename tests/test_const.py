@@ -65,7 +65,7 @@ class TestConst(unittest.TestCase):
             Foo.b997 = 42
         except AttributeError:
             self.fail(
-                "got AttributeError assigning an int to Foo.b997")  # pragma: no cover
+                "got AttributeError assigning an int to Foo.b997")
 
         self.assertEqual(Foo.b997, 42)         # class attribute overridden
         self.assertEqual(foo2.b997, 42)      # instance attribute also

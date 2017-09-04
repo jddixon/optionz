@@ -46,7 +46,7 @@ class TestClassMaker(unittest.TestCase):
                 Optional.  Here we use kwargs to set attributes of the
                 class. Need to return a dictionary-like object.
                 """
-                _, _ = name, bases
+                # _, _ = name, bases
                 return dict(kwargs)
 
             def __new__(mcs, name, bases, namespace, **kwargs):

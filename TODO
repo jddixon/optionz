@@ -1,5 +1,7 @@
 # ~/dev/optionz/TODO
 
+2017-09-03
+    * need to get metaclass tests working again
 2016-12-06
     * rename show_options() to dump_options()                           * DONE
     * add a test where option name lengths > 6                          * DONE

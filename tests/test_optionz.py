@@ -80,7 +80,7 @@ class TestOptionz(unittest.TestCase):
         choices = [choice]
 
         while len(choices) < my_size:
-            if not choice in choices:
+            if choice not in choices:
                 choices.append(choice)
             choice = self.rng.next_file_name(8)
 
@@ -98,7 +98,7 @@ class TestOptionz(unittest.TestCase):
         b_choices = [choice]
 
         while len(b_choices) < my_size:
-            if not choice in b_choices:
+            if choice not in b_choices:
                 b_choices.append(choice)
             choice = self.rng.next_file_name(8)
 
@@ -107,9 +107,8 @@ class TestOptionz(unittest.TestCase):
             dflt_val = self.rng.next_file_name(8)
 
         try:
-            bad_choice_opt = ChoiceOption('bC', choices,
-                                          default=dflt_val, desc="a list")
-            self.fail('successfully added default value not in list of choices')
+            ChoiceOption('bC', choices, default=dflt_val, desc="a list")
+            self.fail('added default value not in list of choices')
         except BaseException:
             pass
 
