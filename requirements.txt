@@ -1,2 +1,3 @@
 # optionz/requirements.txt
+setuptools
 

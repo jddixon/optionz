@@ -18,8 +18,8 @@ __all__ = ['__version__', '__version_date__',
            'ZOption', 'BoolOption', 'ChoiceOption', 'FloatOption',
            'IntOption', 'ListOption', 'StrOption', ]
 
-__version__ = '0.2.9'
-__version_date__ = '2017-09-03'
+__version__ = '0.2.10'
+__version_date__ = '2017-09-21'
 
 JUST_HEADERS = 'OPTION VALUE\n'
 

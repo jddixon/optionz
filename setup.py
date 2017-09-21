@@ -12,7 +12,7 @@ if exists('README.md'):
         long_desc = file.read()
 
 setup(name='optionz',
-      version='0.2.9',
+      version='0.2.10',
       author='Jim Dixon',
       author_email='jddixon@gmail.com',
       long_description=long_desc,
