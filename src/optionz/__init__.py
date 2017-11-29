@@ -18,8 +18,8 @@ __all__ = ['__version__', '__version_date__',
            'ZOption', 'BoolOption', 'ChoiceOption', 'FloatOption',
            'IntOption', 'ListOption', 'StrOption', ]
 
-__version__ = '0.2.10'
-__version_date__ = '2017-09-21'
+__version__ = '0.2.11'
+__version_date__ = '2017-11-28'
 
 JUST_HEADERS = 'OPTION VALUE\n'
 
@@ -38,17 +38,17 @@ def dump_options(ns_, with_headers=True):
     """
 
     if ns_ is None:
+        retval = ''
         if with_headers:
-            return JUST_HEADERS
-        else:
-            return ""
+            retval = JUST_HEADERS
+        return retval
 
     items = sorted(ns_.__dict__.items())        # a list of pairs
-    if len(items) == 0:
+    if not items:
+        retval = ''
         if with_headers:
-            return JUST_HEADERS
-        else:
-            return ""
+            retval = JUST_HEADERS
+        return retval
 
     # We expect only pairs whose LHS is a string and whose RHIS is either
     # a scalar (int, float, str) or a list.  Those with list values are
@@ -59,8 +59,6 @@ def dump_options(ns_, with_headers=True):
     width_lhs = 0
     if with_headers:
         width_lhs = 6           # for the word 'OPTION'
-    else:
-        width_lhs = 0
 
     for pair in items:
         lhs = pair[0]
@@ -82,7 +80,7 @@ def dump_options(ns_, with_headers=True):
         for pair in scalar_pairs:
             lhs = pair[0]
             rhs = pair[1]
-            if isinstance(rhs, str) or isinstance(rhs, bool):
+            if isinstance(rhs, (str, bool)):
                 fmt = "%%-%ds %%s" % width_lhs
             elif isinstance(rhs, int):
                 fmt = "%%-%ds %%d" % width_lhs
@@ -99,7 +97,7 @@ def dump_options(ns_, with_headers=True):
             rhs = pair[1]
             output.append(('\n' + lhs + 'S:').upper())
             for value in rhs:
-                if isinstance(value, str) or isinstance(value, bool):
+                if isinstance(value, (str, bool)):
                     text = "    %s" % value
                 elif isinstance(value, int):
                     text = "    %d" % value
@@ -154,7 +152,7 @@ class MetaOption(type):
     """ Metaclass for Option. """
 
     @classmethod
-    def __prepare__(mcs, name, bases, **kwargs):
+    def __prepare__(mcs, **kwargs):                 # name?, bases?
         """
         Optional.  Here we use kwargs to set attributes of the
         class. Need to return a dictionary-like object.
@@ -164,7 +162,7 @@ class MetaOption(type):
         # END
         return dict(kwargs)
 
-    def __new__(mcs, name, bases, namespace, **kwargs):
+    def __new__(mcs, name, bases, namespace):       # , **kwargs):
         """
         Creates the class; may need to cast namespace to dict.
         Omit kwargs from call to __new__().
@@ -176,7 +174,7 @@ class MetaOption(type):
         print("    DEBUG: __new__(name=%s) succeeded" % name)
         return obj
 
-    def __init__(cls, name, bases, namespace, **kwargs):
+    def __init__(cls, name, bases, namespace):      # , **kwargs):
         """
         Omit kwargs from call to __init__().
         """
@@ -191,7 +189,7 @@ class MetaOption(type):
         print("__CALL__, cls = %s" % cls.__name__)
         # END
         # gets "type() takes 1 or 3 arguments"
-        obj = type.__call__(cls, *args, **kwargs)        # XXX ERROR
+        obj = type.__call__(cls, *args, **kwargs)        # ERROR ??
         print("    DEBUG: __call__ succeeded")
         return obj
 
@@ -232,12 +230,6 @@ class Option(_BaseOption):
     def __eq__(self, other):
         if not other or not isinstance(other, _BaseOption):
             return False
-
-        # DEBUG
-        # print("eq:")
-        # print("  self:  %s" % self.__dict__)
-        # print("  other: %s" % other.__dict__)
-        # END
         return self.__dict__ == other.__dict__
 
     def __ne__(self, other):
@@ -276,14 +268,18 @@ class Optionz(object):
 
     @property
     def name(self):
+        """ Return the name associated with a help message. """
         return self._name
 
     @property
     def desc(self):
+        """ Return the main 'description' part of a help message. """
         return self._desc
 
     @property
-    def epilog(self): return self._epilog
+    def epilog(self):
+        """ Return the 'epilog' part of a help message. """
+        return self._epilog
 
     # Possibly want to add 'def add_choice_option()' and 'def add_list_option'
     # to handle additional parameters
@@ -349,18 +345,22 @@ class ZOption(object):
 
     @property
     def name(self):
+        """ Return the name of an Option. """
         return self._name
 
     @property
     def default(self):
+        """ Return the default value of an Option. """
         return self._default
 
     @property
     def desc(self):
+        """ Return the description associated with an Option. """
         return self._desc
 
 
 class BoolOption(ZOption):
+    """ Command line option of boolean type. """
 
     def __init__(self, name, default=False, desc=None):
         super().__init__(name, ValType.BOOL, default, desc)
@@ -400,6 +400,7 @@ class ChoiceOption(ZOption):
 
 
 class FloatOption(ZOption):
+    """ Command line option of float type. """
 
     def __init__(self, name, default=None, desc=None):
         super().__init__(name, ValType.FLOAT, default, desc)
@@ -412,8 +413,7 @@ class FloatOption(ZOption):
 
 
 class IntOption(ZOption):
-
-    """ Basic attributes of an Option: name, type, default, desc."""
+    """ Command line option of int type. """
 
     def __init__(self, name, default=None, desc=None):
         super().__init__(name, ValType.INT, default, desc)
@@ -438,9 +438,12 @@ class ListOption(ZOption):
 
     # an alias
     @property
-    def size(self): return self._default
+    def size(self):
+        """ Return the default number of items in the list. """
+        return self._default
 
     def __eq__(self, other):
+        """ Whether instances are equal. """
         return isinstance(other, ListOption) and \
             self._name == other.name and \
             self._default == other.default and \
@@ -448,6 +451,7 @@ class ListOption(ZOption):
 
 
 class StrOption(ZOption):
+    """ Command line option of string type. """
 
     def __init__(self, name, default=None, desc=None):
         super().__init__(name, ValType.STR, default, desc)
