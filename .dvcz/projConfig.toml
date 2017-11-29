@@ -1,0 +1,26 @@
+[meta]
+version = "0.1.0"
+
+[project]
+name = "optionz"
+package = "optionz"
+main_lang = "py"
+version = "0.2.11"
+version_date = "2017-11-28"
+author = "Jim Dixon"
+author_email = "jdd@gmail.com"
+copyright = "2016-2017"
+description = "command line option processor"
+dev_status = "planning"
+license = "mit"
+relpath = "py/optionz"
+state = "shared"
+url = "https://jddixon.github.io/optionz"
+
+[python]
+test_dir = "tests"
+packages = [ "optionz",]
+package_dir = [ "src",]
+py_modules = []
+scripts = []
+ext_modules = []
