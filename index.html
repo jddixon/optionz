@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>optionz_py</title>
+  <title>optionz</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href="css/main.css" />
   <link rel="stylesheet" type="text/css" href="css/normalize.css" />
@@ -9,24 +9,130 @@
 </head>
 <body>
 <div class="content">
-<h1 class="libTop">optionz_py</h1>
+<h1 class="libTop">optionz</h1>
 
-<p>Skeletal implementation.</p>
-
+<p><strong>Optionz</strong> is a package for converting a series of command line arguments
+into  an immutable Python data structure.  That is, it plays the same role
+as C's <strong>getopt</strong> or the Python <strong>argparse</strong>.</p>
+<h2>Command Line</h2>
+<p>As the term is used here, the command line is an array of strings,
+<strong>arguments</strong>, as we see in <code>sys.argv</code>.  This sequence is made available to
+the executing program by the
+operating system.  The first element, <code>sys.argv[0]</code>, is normally the name
+of the executing program.  The rest are produced by splitting the command
+line into words, with any sequence of one or more delimiters used to separate
+the words, except that singly- and double-quoted strings are untouched.
+So the command</p>
+<pre><code>abc   def  "ghi   jkl " mno
+</code></pre>
+<p>becomes the string array</p>
+<pre><code>abc
+def
+ghi   jkl
+mno
+</code></pre>
+<h2>Options</h2>
+<p>A command line <strong>option</strong> consists of a <strong><em>tag</em>* (usually the option name)
+preceded by one or two
+dashes (minus signs, <code>-</code>) and followed by zero or more </strong>values**.  Options
+and values are all simple strings.</p>
+<p>As an example</p>
+<pre><code>progName -f -b 52 --feelingGood
+</code></pre>
+<p>consists of the progran name <code>progName</code> followed by two short-form options
+(<code>-f</code> and <code>-b</code>) and one long-form option (<code>feelingGood</code>).  Two of the
+otions are not followed by a value and so would probably be booleans.  The
+third, <code>-b</code>, has a value, <code>52</code>, which would probably be interpreted as
+an integer.</p>
+<h3>Option Names</h3>
+<p>A valid option or tag name is a sequence of printing characters, none of
+which is
+a delimiter (a space or a tab character).  For our immediate purposes, a
+valid name matches the regular expression</p>
+<pre><code>[a-zA-Z0-9_]+
+</code></pre>
+<p>This implies that any valid Python name is a valid option name, but the
+opposite need not be true.  So all of these are valid option names:</p>
+<pre><code>a_b  _  12  b52
+</code></pre>
+<p>but none of these is</p>
+<pre><code>-5        # contains a dash
+abc.def   # contains a dot
+</code></pre>
+<h3>Short-form Options</h3>
+<p>On the command line, a short-form operation is generally
+represented as single characters <strong>tag</strong> preceded by a
+dash.  The single character may be the name of the option.
+So '-f' is the short-form representation of the option <code>f</code> on the
+command line.  Generally a longer option name is associated with
+the single character tag represenging it on the command line.</p>
+<h3>Long-form Options</h3>
+<p>Long-form options are represented on the command line as a tag,
+a string of non-delimiting characters, preceded by a double dash (<code>--</code>).
+The tag is generally the same as the option name.</p>
+<h2>Requirements</h2>
+<h3>Tags and Option Names</h3>
+<p><strong>optionz</strong> must support both long and short option forms.  The tag
+in the short form must be a single character.  The tag is the long
+form option can be any valid name and by default will be the option
+name. One-character tags must be uniquely associated with an option
+name.  That is, in a set of options, each single-character tag
+corresponds to one and only one option and any option name may be
+associated with one and only one single-character tog.  Similarly
+options are uniquely associated with multi-character tags.  However,
+and this is the more common case, any option may be associated with
+both a single-character tag and a multi-character tag, and the
+multi-character tag is normally identical to the option name.</p>
+<h2>Values</h2>
+<p>Each option is associated with zero, one, or more values.  These are
+represented as strings, but the <code>optionz</code> declaration will include
+syntax mapping any value or values associated with an option into either a
+basic data type or a collection of such.  That is, <code>optionz</code> will
+automatically cast the string into a Python value of the correct type.</p>
+<h3>Basic Data Types</h3>
+<p>These are</p>
+<ul>
+<li>integer</li>
+<li>float</li>
+<li>string</li>
+<li>boolean</li>
+<li>choices</li>
+</ul>
+<h3>Collections</h3>
+<p>A <strong>collection</strong> in the sense in which the term is used here is a sequence
+of values.  In Python terms the <code>optionz</code> deliverable corresponding to a
+collection is a named tuple whose cardinality is symbolized by</p>
+<ul>
+<li>'?' zero or one values</li>
+<li>'*' zero or more values</li>
+<li>'+' one or more values</li>
+</ul>
+<p>All values in a collection are of the same basic type.</p>
+<h2>Subcommands</h2>
+<p><code>optionz</code> must support <strong>subcommands</strong>, where a subcommand is essentially
+a tag followed by a nested set of options.</p>
+<p>Where subcommands are used, the first string in the argument vector
+<code>sys.argv</code> will be the program name as usual.  This may be followed
+by some number of options (each consisting of one or two dashes
+followed by a tag and then zero or more values) and then one of
+the subcommands, each of which has the same form: the subcommand
+name followed by zero or options.</p>
+<h2>Help Messages</h2>
+<p>All <code>optionz</code> objects have a built-in <strong>help</strong> option which has a
+<code>-h</code> short form and a <code>--help</code> long form.  These map into a single
+field, which is a boolean.</p>
 <h2>Project Status</h2>
-
-<p>Just a quick sketch.</p>
-
+<p>Pre-alpha.</p>
 <h2>Licensing</h2>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />The material on this github.io website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 <p>Project software is licensed under an MIT license.
 Follow the SOFTWARE LICENSE link below for more information on project software licensing.</p>  <div class="f">
     <hr />
     <div class="license">
-      <p><a href="LICENSE.html">SOFTWARE LICENSE</a></p>
+      <p><a href="LICENSE-MIT.html">SOFTWARE LICENSE</a></p>
     </div>
     <div class="project">
-      github <a href="https://github.com/jddixon/optionz_py">      <img src="img/GitHub-Mark-32px.png" 
+      github <a href="https://github.com/jddixon/optionz">      <img src="img/GitHub-Mark-32px.png" 
         alt="link to project"  
         style="display: inline-block; margin-left: 0 auto; margin-right: 0 auto">
        </a> project
