@@ -8,18 +8,18 @@ k2lyCIE/V/CDb9eVDYQgYSJYrnQ/JAPST7NbcY8aI+/0l7QVBhLBpmOCvmS6ofvz
 /QIDAQAB
 -----END PUBLIC KEY-----
 optionz
-2017-11-29 00:57:32
+2018-02-26 17:39:30
 # BEGIN CONTENT #
 optionz
  .coveragerc a9aacaff99a70128f33b05d09426590c5585d0b8
  .dvcz
-  builds 1adaaf5125fabc69985ac63e8ecb4b7375dcd150
-  lastBuildList 9b4c658b169c9b75ec912b524063319816d04c6a
+  builds 5b9a1ae2bf85a76f5e599bfb83ddcdf3e7763ba1
+  lastBuildList 6f306bb80b4ac72034b3f5be7c5360eec9bb369e
   projCfg efb3fd515e3edb1a7c1b0194722d4bcaec18b871
   projCfg.local 76e21330aed555d9976769c2efdb5caef955be3c
-  projConfig.toml 7f20f53f3d7502b1b4990a0bafadf6616ad02d74
+  projConfig.toml 1bbf68a51aa90fab93e803614c62c61f84652915
  .gitignore c8129c7133b7a7755cefd3dfc62a9af7bc306aa0
- CHANGES e8cdc7b1fe2230abc580b708fec2bbe2e3d31725
+ CHANGES 0748786342005d297beb7b167939a6721d0d63b7
  LICENSE-MIT.md 1aadfd51d28fc4b9e3f5929212794dd121b13e26
  MANIFEST.in ee87ecf6928c0c4c69376734eba9cf532ce748b1
  README.md 7cfb538f87104d8e6688d880197ac1a56c41f073
@@ -45,13 +45,13 @@ optionz
   index.md faf2643bb5f24bf04d6692b6b74190267ce747e1
  installit 770b458f2e9c4e88de6221b8b062620abe5337f1
  pylintrc dd234fda24a547a9071f1e4608a3c1f3b7de9aa0
- requirements.txt f264a3cc820a26d515daa4c7eea8b4eb294b251a
- setup.py 031c6831049ea9639dc05301cdc521f387c8f9c6
+ requirements.txt d4fab8e6d5824ad6b03f28888e100cd903bb0de1
+ setup.py 994c287f1d21a0562c62775aa0a024641f3ea3e7
  src
   optionz
-   __init__.py 52746b6a82241d280931c81cd95cec72d85d5eb8
+   __init__.py 9e96e003da55288806ec6fec767cdcb334dfcdc0
  styleit 1265227bd993ce7989fbdd2981f8ac9a53f9e861
- test.all b9a01d196414f9ce7c08fa4c7f9a2244bd12de93
+ test.all 5afda043043ad120f3e37de7dd49b6a4ad9cb372
  test_requirements.txt 4f706ff86bc04bc4021d1a0ba6497a39cc2e1bea
  tests
   test_adding_functions.py 0af2a4d11f15e3f2da6b7f964455f0855b450fb9
@@ -63,7 +63,7 @@ optionz
   test_named_tuples.py a7ffa192ca945cbb8c08780d8940b01d33fedebd
   test_optionz.py 1afad1e341bcea078d5122ac7b32f32d20dd2fb0
   test_with_json.py c7c754bbc0a7cee6fdd8179bbf8fed38157d80ff
- tox.ini 21e5f58666e5537aebb4323845a9222ddb98671d
+ tox.ini ea6678bc939b83a0d029668a9b3f0dc4f8b7b979
 # END CONTENT #
 
-JMwVePvSxq7xOTZ3ZEsvhZ741OsdJoKgH+pPcOSf7U54J7wAWLBigCrrXxE1xey9pDOSBCOlMK4V5Zx7WnjfpwfmPus0v6Se3WG0docBgtcvzCl5H4+43pIo4F7T7xFhGt/iQXgByFTGZICRo/622b1XXl63lva5hZHzWtQPJf95OX4QO5gr+jOnGJBc0H6JLRnFc9/yFmrnB8mCF0x/RvjZT2ZZp7Vd8UQTphlkl6rhLrWRa9RcNsTXv5ObuPGxSN1w4a5uyGwLXb4KuwHHJ/cAqtg7oqvbvHN/Ar5T+gSGptCu8Rf5bNKZSCs5FsuTBl26bsiCIAJiwn9IM3Ktgw==
+F44RAmSOeVBUw7g4/OIebmfb18F2aqUwcnr5EUp+Ea5QOl72VsX5IIBZHM3Wc6d0XASlpd4fCkFYg1MtDe3pWU4/KMoMdAdQ2Y19C60IwDU3yIWrlx1nr/dkGo94gCjANPDlK0EozeBdRo6uasRf86/n/tmHvYjNx/Ri2hl11cA0XrAfLzyJ5iRSGve+WLWOJ3KJMob46RqeBBwcR6rfPvh+32C9DBDQ1Bpht3DfhZnfek9AeBTyZzhJmG3PwubmE9rlO3WlS6BwSL6QWmvvgjNOzy48qFOyy/hmgke979dmrg+/45r4wZ2G5dhtInc/OpXfQcJFxLvflSE4aiRAlw==
