@@ -5,19 +5,19 @@ version = "0.1.0"
 name = "optionz"
 package = "optionz"
 main_lang = "py"
-version = "0.2.12"
-version_date = "2018-02-26"
+version = "0.2.13"
+version_date = "2018-03-18"
 author = "Jim Dixon"
-author_email = "jdd@gmail.com"
-copyright = "2016-2017"
+author_email = "jddixon@gmail.com"
+copyright = "2016-2018"
 description = "command line option processor"
-dev_status = "planning"
+dev_status = "pre-alpha"
 license = "mit"
 relpath = "py/optionz"
 state = "shared"
 url = "https://jddixon.github.io/optionz"
 
-[python]
+[py]
 test_dir = "tests"
 packages = [ "optionz",]
 package_dir = [ "src",]

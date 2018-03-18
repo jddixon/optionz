@@ -1,6 +1,9 @@
 # ~/dev/py/optionzy/CHANGES
 
 
+v0.2.13
+    2018-03-18
+        * correct corrupt .dvcz/builds                              SLOC 1848
 v0.2.12
     2018-02-26
         * correct tox config files, setup.py                        SLOC 1845
@@ -99,6 +102,7 @@ v0.0.2
 v0.0.1
     2016-03-13
         * initial build                                             SLOC   22
+
 
 
 
